@@ -1,0 +1,153 @@
+Package: com.thomz.linedget 
+Name: Linedget
+Version: 1.1
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: A customizable Widget for the homescreen
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.linedget.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.linedget/depic.html
+Size: 1063038
+MD5sum: e3993bead0df7458e3eba282fc3da0f5
+
+Package: com.thomz.pokecenter 
+Name: Pkmn Center Charging Sound
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Tweaks
+Description: The R/B/Y heal jingle for your device
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.pokecenter.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.pokecenter/depic.html
+Size: 225536
+MD5sum: 716669b9e9b48fd49209d99788603bb8
+
+Package: com.thomz.sonicwidget 
+Name: Run Sonic!
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: A Widget for the homescreen with a running sonic
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.sonicwidget.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.sonic/depic.html
+Size: 1330428
+MD5sum: b42b9c166ba381fe17a7203a086ea4a3
+
+Package: com.thomz.ps1charging
+Name: PS1 Startup Charging Sound
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Tweaks
+Description: The PS1 startup sound for your device
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.ps1charging.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.ps1/depic.html
+Size: 671998
+MD5sum: 5d28a3d860199db451e9e5da6e012f30
+
+Package: com.thomz.portalgunls 
+Name: Portalgun LS
+Version: 1.1
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: A Widget for the lockscreen with a portalgun animation
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.portalgunls.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.portalgunls/depic.html
+Size: 509950
+MD5sum: 2aa3e35fcd198e7dacc64cde2dbc65a1
+
+Package: com.thomz.portalgunhs 
+Name: Portalgun HS
+Version: 1.1
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: A Widget for the homescreen with a portalgun animation
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.portalgunhs.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.portalgunhs/depic.html
+Size: 582830
+MD5sum: 730fb454fd5f75f5e7b4dd86acd118bf
+
+Package: com.thomz.terminaios 
+Name: TerminaIOS
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: A Widget for the LS/HS that look like a terminal window
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.terminaios.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.terminaios/depic.html
+Size: 110484
+MD5sum: 6108ab702f8cb4f93334cfe00a06d82f
+
+Package: com.thomz.simplecontainer 
+Name: Simple Container
+Version: 1.1
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: It's just.. a simple container
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.simplecontainer.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.simplecontainer/depic.html
+Size: 127696
+MD5sum: 8ba26bb5e958322f475d813341bd2a56
+
+Package: com.thomz.outlinewdgt 
+Name: Outline Widget
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: A widget for Outline theme
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.outlinewdgt.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.outlinewdgt/depic.html
+Size: 30768
+MD5sum: 428a16c5b6526246249b374d13861d5c
+
+Package: com.thomz.outline
+Name: Outline
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Themes
+Description: An Outlined theme !
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.outline.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.outline/depic.html
+Size: 1930660
+MD5sum: e7e860d5af05f27585b1b6fb79865c29
+
+Package: com.thomz.metalsonic
+Name: Metal Sonic
+Version: 1.0
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Author: Thomz
+Section: Widgets
+Description: An animated Metal Sonic for your LS
+Maintainer: Thomz <thom.laffay@gmail.com>
+Filename: ./debs/com.thomz.metalsonic.deb
+Depiction: https://thomz07.github.io/depics/com.thomz.metalsonic/depic.html
+Size: 346090
+MD5sum: 58e60840dac5186d1360a53b5952d58d

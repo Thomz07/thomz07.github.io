@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="shortcut icon" href="https://thomz07.github.io/CydiaIcon.png" />
+<meta charset="utf-8">
+<title>Thomz's repo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+
+  <div id="navbar">
+    <div id="addToCydia" onclick="addToCydia()"></div>
+    <div id="title"></div>
+    <img id="twitter" src="img/twitter.png" onclick="twitter()"/>
+  </div>
+
+  <div id="text">
+    <a>About me</a>
+    <p>Hey I'm Thomas, I'm 16 yo and I like to code and develop stuff for iOS</p>
+    <p>I'm passionated by Jailbreak since the iOS 7 days but I've only got into tweak developement since iOS 12</p>
+    <p>I'm currently learning Objective-C and Swift and building some little tweaks as shown below</p>
+    <a>My tweaks</a>
+  </div>
+
+  <div id="everyTweakCell">
+    <div class="tweaksCell" id="FoldedTweak" onclick="folded()">
+      <img id="TweakIcon" src="icons/Folded.png"/>
+      <div class="tweaksCellTitle" id="foldedTitleFunction">Folded</div>
+      <div class="tweaksCellDescription">Folders, your way</div>
+    </div>
+
+    <div class="tweaksCell" id="FoldyTweak" onclick="foldy()">
+      <img id="TweakIcon" src="icons/Foldy.png"/>
+      <div class="tweaksCellTitle">Foldy</div>
+      <div class="tweaksCellDescription">Make folders yours</div>
+    </div>
+
+    <div class="tweaksCell" id="UTrynaShutDownTweak" onclick="UTrynaShutDown()">
+      <img id="TweakIcon" src="icons/UTrynaShutDown.png"/>
+      <div class="tweaksCellTitle">UTrynaShutDown</div>
+      <div class="tweaksCellDescription">Prevent people from turning off your phone</div>
+    </div>
+  </div>
+
+  <div id="contact">
+    <a>Social</a>
+    <div class="SocialCell" id="twittter" onclick="twitter()">
+      <img src="img/twitterIcon.png" class="SocialCellIcon"/>
+    </div>
+    <div class="SocialCell" id="reddit" onclick="reddit()">
+      <img src="img/redditIcon.png" class="SocialCellIcon"/>
+    </div>
+    <div class="SocialCell" id="github" onclick="github()">
+      <img src="img/githubIcon.png" class="SocialCellIcon"/>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("addToCydia").innerHTML = "+";
+    document.getElementById("title").innerHTML = "Thomz's repo";
+
+    function addToCydia(){
+      window.location = "cydia://url/https://cydia.saurik.com/api/share#?source=https://thomz07.github.io/";
+    }
+
+    function twitter(){
+      window.location = "https://twitter.com/Thomzi07";
+    }
+
+    function reddit(){
+      window.location = "https://reddit.com/u/thomz07";
+    }
+
+    function github(){
+      window.location = "https://github.com/thomz07";
+    }
+
+    function folded(){
+      document.getElementById("foldedTitleFunction").innerHTML = "Coming soon";
+    }
+
+    function UTrynaShutDown(){
+      window.location = "https://repo.packix.com/package/com.thomz.utrynashutdown/";
+    }
+
+    function foldy(){
+      window.location = "https://repo.packix.com/package/com.thomz.foldy/"
+    }
+  </script>
+
+</body>
+</html>
