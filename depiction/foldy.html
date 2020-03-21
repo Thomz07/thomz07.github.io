@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="shortcut icon" href="https://thomz07.github.io/CydiaIcon.png" />
+<meta charset="utf-8">
+<title>Thomz's repo</title>
+<link rel="stylesheet" href="styleFoldy.css">
+</head>
+<body id="body">
+
+  <div id="navbar">
+    <div id="addToCydia" onclick="addToCydia()"></div>
+    <div id="title"></div>
+    <img id="twitter" src="../img/twitter.png" onclick="twitter()"/>
+  </div>
+
+  <div id="text">
+    <a>Foldy</a>
+    <p>Foldy is a tweak that lets you enhance your folders</p>
+    <p>It is compatible for iOS 11 up to iOS 13</p>
+    <p>With a lot of options, your folders will look unique</p>
+    <p>Get it for free on <a class="link" style="font-size:20px;transition:0.5s;"href="https://repo.packix.com/package/com.thomz.foldy">Packix repository</a></p>
+    <p>This tweak is <a class="link" style="font-size:20px;transition:0.5s;"href="https://github.com/thomz07/foldy">Open Source</a></p>
+    <p>Note : Foldy will soon be discontinued and replaced by <a class="link" style="font-size:20px;transition:0.5s;"href="../depiction/folded.html">Folded</a></p>
+    <a>Screenshots</a>
+  </div>
+
+  <img class="screenshots" id="screnshot1" src="../screenshots/foldy1.png"/>
+  <img class="screenshots" id="screnshot2" src="../screenshots/foldy2.png"/>
+  <img class="screenshots" id="screnshot3" src="../screenshots/foldy3.png"/>
+  <img class="screenshots" id="screnshot4" src="../screenshots/foldy4.png"/>
+
+  <div id="text" style="margin-top:10px">
+    <a>Check my other Tweaks</a>
+    <div id="everyTweakCell">
+        <div class="tweaksCell" id="FoldedTweak" onclick="folded()">
+        <img id="TweakIcon" src="../icons/Folded.png"/>
+        <div class="tweaksCellTitle" id="foldedTitleFunction">Folded</div>
+        <div class="tweaksCellDescription">Folders, your way</div>
+        </div>
+
+        <div class="tweaksCell" id="UTrynaShutDownTweak" onclick="UTrynaShutDown()">
+        <img id="TweakIcon" src="../icons/UTrynaShutDown.png"/>
+        <div class="tweaksCellTitle">UTrynaShutDown</div>
+        <div class="tweaksCellDescription">Prevent people from turning off your phone</div>
+        </div>
+
+        <div class="tweaksCell" id="paxadeTweak" onclick="paxade()">
+          <img id="TweakIcon" src="../icons/tweak.png"/>
+          <div class="tweaksCellTitle">Paxade</div>
+          <div class="tweaksCellDescription">Modify the Lockscreen Clock</div>
+          </div>
+    </div>
+    </div>
+    
+    <div id="text"></div>
+
+  <script>
+    document.getElementById("addToCydia").innerHTML = "+";
+    document.getElementById("title").innerHTML = "Foldy";
+
+    function addToCydia(){
+      window.location = "cydia://url/https://cydia.saurik.com/api/share#?source=https://thomz07.github.io/";
+    }
+
+    function twitter(){
+      window.location = "https://twitter.com/Thomzi07";
+    }
+
+    function folded(){
+        window.location = "https://thomz.github.io/depiction/folded.html";
+    }
+
+    function UTrynaShutDown(){
+        windows.location = "https://thomz.github.io/depiction/utrynashutdown.html";
+    }
+
+  </script>
+
+</body>
+</html>
