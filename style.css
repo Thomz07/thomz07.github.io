@@ -45,7 +45,7 @@ p{
     cursor: pointer;
 }
 
-#title {
+#titleNavBar {
     position:relative;
     text-align:center;
     z-index:0;
