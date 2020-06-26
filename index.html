@@ -16,35 +16,40 @@
 
   <div id="text">
     <a>About me</a>
-    <p>Hey I'm Thomas, I'm 16 yo and I like to code and develop stuff for iOS</p>
+    <p>Hey I'm Thomas, I'm 16 years old and I like to code and develop stuff for iOS</p>
     <p>I'm passionated by Jailbreak since the iOS 7 days but I've only got into tweak developement since iOS 12</p>
     <p>I'm currently learning Objective-C and Swift and building some little tweaks as shown below</p>
     <a>My tweaks</a>
   </div>
 
   <div id="everyTweakCell">
+    <div class="tweaksCell" id="MultiplaTweak" onclick="multipla()">
+      <img id="TweakIcon" src="https://chariz.com/cdn/icon/multipla/icon.png"/>
+      <div class="tweaksCellTitle" id="foldedTitleFunction">Multipla</div>
+      <div class="tweaksCellDescription">Power to your dock</div>
+    </div>
+
     <div class="tweaksCell" id="FoldedTweak" onclick="folded()">
-      <img id="TweakIcon" src="icons/Folded.png"/>
+      <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5e8795b03dde3e0038fef4d3/icon/download?size=medium"/>
       <div class="tweaksCellTitle" id="foldedTitleFunction">Folded</div>
       <div class="tweaksCellDescription">Folders, your way</div>
     </div>
 
     <div class="tweaksCell" id="FoldyTweak" onclick="foldy()">
-      <img id="TweakIcon" src="icons/Foldy.png"/>
+      <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5e59603f1db961001a5dc277/icon/download?size=medium"/>
       <div class="tweaksCellTitle">Foldy</div>
       <div class="tweaksCellDescription">Make folders yours</div>
-    </div>
-
-    <div class="tweaksCell" id="UTrynaShutDownTweak" onclick="UTrynaShutDown()">
-      <img id="TweakIcon" src="icons/UTrynaShutDown.png"/>
-      <div class="tweaksCellTitle">UTrynaShutDown</div>
-      <div class="tweaksCellDescription">Prevent people from turning off your phone</div>
     </div>
   </div>
 
   <div id="everyTweakCell2">
+    <div class="tweaksCell" id="UTrynaShutDownTweak" onclick="UTrynaShutDown()">
+      <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5de92ce26ee46f001a55aa96/icon/download?size=medium"/>
+      <div class="tweaksCellTitle">UTrynaShutDown</div>
+      <div class="tweaksCellDescription">Prevent people from turning off your phone</div>
+    </div>
     <div class="tweaksCell" id="PaxadeTweak" onclick="paxade()">
-      <img id="TweakIcon" src="icons/tweak.png"/>
+      <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5e651dff32249f001aa24bbf/icon/download?size=medium"/>
       <div class="tweaksCellTitle" id="foldedTitleFunction">Paxade</div>
       <div class="tweaksCellDescription">Modify the Lockscreen Clock</div>
     </div>
@@ -91,7 +96,7 @@
     }
 
     function folded(){
-      document.getElementById("foldedTitleFunction").innerHTML = "Coming soon";
+      window.location = "depiction/folded.html";
     }
 
     function UTrynaShutDown(){
@@ -104,6 +109,10 @@
 
     function paxade(){
       window.location = "depiction/paxade.html";
+    }
+
+    function multipla(){
+      window.location = "depiction/multipla.html";
     }
   </script>
 

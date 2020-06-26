@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="shortcut icon" href="https://thomz07.github.io/CydiaIcon.png" />
+<meta charset="utf-8">
+<title>Thomz's repo</title>
+<link rel="stylesheet" href="styleMultipla.css">
+</head>
+<body id="body">
+
+  <div id="navbar">
+    <div id="addToCydia" onclick="addToCydia()"></div>
+    <div id="title"></div>
+    <img id="twitter" src="../img/twitter.png" onclick="twitter()"/>
+  </div>
+
+  <div id="text">
+    <a>Multipla</a>
+    <p>Multipla lets you add widgets to your dock to make it finally useful made by <a class="link" style="font-size:20px;transition:0.5s;"href="https://twitter.com/Thomzi07">Thomz (me)</a> and <a class="link" style="font-size:20px;transition:0.5s;"href="https://twitter.com/burrit0ztweaks">Burrit0z</a></p>
+    <p>It is compatible with iOS 11 up to iOS 13</p>
+    <p>Control your music or see your activity, Multipla has a total of 6 widgets plus Widgets available with tweaks like Veza</p>
+    <p>Get it for 1.99$ on <a class="link" style="font-size:20px;transition:0.5s;"href="https://chariz.com/buy/multipla">Chariz repository</a></p>
+    <a>Screenshots</a>
+  </div>
+
+  <img class="screenshots" id="screnshot1" src="https://chariz.com/cdn/screenshot/multipla/multipla-1.2.3-1.jpg"/>
+  <img class="screenshots" id="screnshot2" src="https://chariz.com/cdn/screenshot/multipla/multipla-1.2-2.jpg"/>
+  <img class="screenshots" id="screnshot3" src="https://chariz.com/cdn/screenshot/multipla/multipla-1.2-3.jpg"/>
+  <img class="screenshots" id="screnshot4" src="https://chariz.com/cdn/screenshot/multipla/multipla-1.2-4.jpg"/>
+  <img class="screenshots" id="screnshot5" src="https://chariz.com/cdn/screenshot/multipla/multipla-1.2-5.jpg"/>
+
+  <div id="text" style="margin-top:10px">
+    <a>Check my other Tweaks</a>
+      <div id="everyTweakCell">
+          <div class="tweaksCell" id="FoldedTweak" onclick="folded()">
+          <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5e8795b03dde3e0038fef4d3/icon/download?size=medium"/>
+          <div class="tweaksCellTitle" id="foldedTitleFunction">Folded</div>
+          <div class="tweaksCellDescription">Folders, your way</div>
+          </div>
+
+          <div class="tweaksCell" id="UTrynaShutDownTweak" onclick="bruh()">
+          <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5de92ce26ee46f001a55aa96/icon/download?size=medium"/>
+          <div class="tweaksCellTitle">UTrynaShutDown</div>
+          <div class="tweaksCellDescription">Prevent people from turning off your phone</div>
+          </div>
+
+          <div class="tweaksCell" id="paxadeTweak" onclick="paxade()">
+            <img id="TweakIcon" src="https://repo.packix.com/api/Packages/5e651dff32249f001aa24bbf/icon/download?size=medium"/>
+            <div class="tweaksCellTitle">Paxade</div>
+            <div class="tweaksCellDescription">Modify the Lockscreen Clock</div>
+            </div>
+      </div>
+</div>
+    
+    <div id="text"></div>
+
+  <script>
+    document.getElementById("addToCydia").innerHTML = "☜";
+    document.getElementById("title").innerHTML = "Multipla";
+
+    function addToCydia(){
+      window.location = "../index.html";
+    }
+
+    function twitter(){
+      window.location = "https://twitter.com/Thomzi07";
+    }
+
+    function folded(){
+        window.location = "folded.html";
+    }
+
+    function bruh(){
+        window.location = "utrynashutdown.html";
+    }
+
+    function paxade(){
+      window.location = "paxade.html";
+    }
+
+  </script>
+
+</body>
+</html>
