@@ -1,0 +1,181 @@
+body {
+    font-family: "SFNSDisplayLight";
+}
+
+#wallpaper_image {
+    position:fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    z-index: -100;
+}
+
+@font-face {
+    font-family: 'SFNSDisplayLight';
+    src: url('fonts/SFNSDisplayLight.eot');
+    src: url('fonts/SFNSDisplayLight.eot') format('embedded-opentype'),
+         url('fonts/SFNSDisplayLight.woff2') format('woff2'),
+         url('fonts/SFNSDisplayLight.woff') format('woff'),
+         url('fonts/SFNSDisplayLight.ttf') format('truetype'),
+         url('fonts/SFNSDisplayLight.svg#SFNSDisplayLight') format('svg');
+}
+
+@font-face {
+    font-family: 'SFProDisplayBlack';
+    src: url('fonts/SFProDisplayBlack.eot');
+    src: url('fonts/SFProDisplayBlack.eot') format('embedded-opentype'),
+         url('fonts/SFProDisplayBlack.woff2') format('woff2'),
+         url('fonts/SFProDisplayBlack.woff') format('woff'),
+         url('fonts/SFProDisplayBlack.ttf') format('truetype'),
+         url('fonts/SFProDisplayBlack.svg#SFProDisplayBlack') format('svg');
+}
+
+#main_block {
+    background-color: white;
+    width: 50%;
+    height: 1475px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 1px solid #b9b9b9;
+}
+
+#barre_du_haut{
+    background-color: #d9d9d9;
+    width: 100%;
+    height: 25px;
+    border-radius: 9px 9px 0px 0px;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.close_button {
+    float: left;
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 50%;
+    margin-left: 7.5px;
+    margin-top: 5.25px;
+    border: 1px solid;
+} 
+
+#red_button {
+    background-color: #FE5E5E; 
+    border-color: #ff3d3d;
+}
+
+#yellow_button {
+    background-color: #FBBD2C;
+    border-color: #ffb300;
+}
+
+#green_button {
+    background-color: #31C546;
+    border-color: #00c01d;
+}
+
+#time {
+    width: 100%;
+    text-align: center;
+    float: top;
+    padding-top: 3px;
+    margin-left: -60px;
+}
+
+#button {
+    font-family: "SFNSDisplayLight";
+    margin: 10px;
+}
+
+#profile_picture {
+    width: 150px;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 50px;
+    float: left;
+    transition: 0.3s;
+    outline: 0px solid #d9d9d9;
+}
+
+#profile_picture:hover {
+    outline: 7.5px solid #d9d9d9;
+    scale: 95%; 
+}
+
+#nom_prenom_block {
+    float: left;
+    margin-top:80px;
+    margin-left: 30px;
+    border-radius: 10px;
+}
+
+#email_adress {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#email_adress:hover {
+    margin-left: 5px;
+}
+
+.cursorSize {
+    font-size: 0px;
+}
+
+.category_title {
+    font-family: SFProDisplayBlack;
+    font-size: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.category_title:hover {
+    margin-left: 7.5px;
+}
+
+#parcours_scolaire_block {
+    margin-top: 300px;
+}
+
+#experiences_scolaire_block {
+    margin-top: 50px;
+}
+
+#experience_extra_scolaires_block {
+    margin-top: 50px;
+}
+
+#competences_block {
+    margin-top: 50px;
+}
+
+#centre_dinterets_block {
+    margin-top: 50px;
+}
+
+#contact_block {
+    margin-top: 50px;
+}
+
+.normal_texte {
+    font-size: 17.5px;
+    float: left;
+    margin-top: 0px;
+}
+
+.text_blocks {
+    height: auto;
+    padding-left: 50px;
+    float: top;
+}
+
+.links {
+    transition: 0.3s;
+}
+.links:hover {
+    margin-top: -2px;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CV Thomas Laffay</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="osx_buttons.css">
+	<link rel="stylesheet" type="text/css" href="osbigsur_buttons.css">
+	<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+</head>
+<body onload="display_ct();">
+
+	<div id="wallpaper">
+		<img id="wallpaper_image">
+	</div>
+	<div id="main_block">
+		<div id="barre_du_haut">
+			<div id="red_button" class="close_button"></div>
+			<div id="yellow_button" class="close_button"></div>
+			<div id="green_button" class="close_button"></div>
+			<div id="time"></div>
+		</div>
+		<div><img src="profile_picture.jpg" id="profile_picture"></div>
+		<div id="nom_prenom_block">
+			<a>Thomas Laffay</a><br>
+			<a>25/08/2003</a><br><br>
+			<a>06 52 07 22 17</a><br>
+			<a href="mailto:thom.laffay@gmail.com" id="email_adress">thom.laffay@gmail.com</a><br>
+			<a id="physical_adress">429 Chemin des Hauches de Tourton <br> 07430 Savas</a><br>
+		</div>
+		<div id="parcours_scolaire_block" class="text_blocks">
+			<a class="category_title">Parcours scolaire</a><br><br>
+			<a class="normal_texte">2016-2017 : 3ème au Collège Sacré-Coeur, Annonay, Brevet mention Très Bien</a><br><br>
+			<a class="normal_texte">2019-2020 : Terminale STI2D au Lycée Saint-Denis, Annonay, Bac mention Assez Bien</a><br><br>
+			<a class="normal_texte">2020-2021 : Première année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br>
+		</div>
+		<div id="experiences_scolaire_block" class="text_blocks">
+			<a class="category_title">Expériences scolaires</a><br><br>
+			<a class="normal_texte">- Réalisation d'un guide de la ville de Lyon de A à Z sur le thème du bon vivant</a><br><br>
+			<a class="normal_texte">- Réalisation d'une station météo connectée</a><br><br>
+			<a class="normal_texte">- Création complète d'une marque fictive par rapport à des contraintes (Diabébic, stylo permettant de se piquer contre le diabète en toute discrétion)</a><br><br><br>
+			<a class="normal_texte">- Réalisation d'un guide de visite virtuel du <a href="https://www.univ-lyon2.fr/mumo" style="text-decoration: none;" class="normal_texte links" target="_blank"> &nbsp;musée des moulages à Lyon</a></a><br>
+		</div>
+		<div id="experience_extra_scolaires_block" class="text_blocks">
+			<a class="category_title">Expériences extra-scolaires</a><br><br>
+			<a class="normal_texte">Développement de tweaks pour iPhone chez <a href="https://chariz.com" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Chariz</a><a class="normal_texte">&nbsp;et également</a><a href="https://packix.com" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Packix</a><a class="normal_texte">sous le pseudo thomz/thomz07</a></a><br><br><br>	
+			<a class="normal_texte">Stage d'observation chez FANUC Robotics</a><br><br>
+			<a class="normal_texte">Formation aux premiers secours PSC1</a><br><br>
+			<a class="normal_texte">Voyages aux Etats-Unis (2010 et 2019)</a>
+		</div>
+		<div id="competences_block" class="text_blocks">
+			<a class="category_title">Compétences</a><br><br>
+			<a class="normal_texte">Capacité à travailler en groupe comme à être autonome</a><br><br>
+			<a class="normal_texte">Capacité à s'adapter, maîtrise de l'anglais (niveau C1)</a><br>
+		</div>
+		<div id="centre_dinterets_block" class="text_blocks">
+			<a class="category_title">Centre d'intérêts</a><br><br>
+			<a class="normal_texte">Informatique, développement, jeux vidéos, technologies</a><br>
+		</div>	
+		<div id="contact_block" class="text_blocks">
+			<a class="category_title">Contact</a><br><br>
+			<button class="osbigsur" onclick="location.href='https://www.linkedin.com/in/laffay-thomas-336842102/';"><img src="linkedin.png" width="30px"></button>
+			<button class="osbigsur" onclick="location.href='https://github.com/thomz07';"><img src="github.png" width="30px"></button>
+			<button class="osbigsur" onclick="location.href='https://thomz07.github.io';"><img src="website.png" width="30px"></button>
+		</div>
+	</div>
+
+	<script>
+		var app = document.getElementById('physical_adress'); 
+
+		var typewriter = new Typewriter(app, {
+			loop: true,
+			delay: 30,
+			deleteSpeed: 30,
+			cursorClassName: 'cursorSize'
+		});
+
+		typewriter.typeString(" ") 
+		.typeString('429 Chemin des Hauches de Tourton <br> 07430 Savas') 
+		.pauseFor(3000) 
+		.deleteChars(46) 
+		.typeString("55 bis Avenue René Cassin <br> 69009 Lyon") 
+		.pauseFor(3000) 
+		.deleteChars(37) 
+		.start(); 
+
+		function display_c(){
+			var refresh=1000; 
+			mytime=setTimeout('display_ct()',refresh)
+		}
+
+		function display_ct() {
+			var x = new Date()
+
+			var hour=x.getHours();
+			var minute=x.getMinutes();
+			var second=x.getSeconds();
+			if(hour <10 ){hour='0'+hour;}
+			if(minute <10 ) {minute='0' + minute; }
+			if(second<10){second='0' + second;}
+			var x3 = ' ' +  hour+':'+minute+':'+second
+			document.getElementById('time').innerHTML = "CV Thomas Laffay - " + x3;
+			display_c();
+		}
+
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * max);
+		}
+		var images = ["https://512pixels.net/downloads/macos-wallpapers-thumbs/10-6-Server-thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-7--thumb.png",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-9--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-10--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-11--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-12--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-13--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-14-Day-Thumb.jpg"];
+		x = images[getRandomInt(images.length)];
+		document.getElementById("wallpaper_image").src = x;
+	</script>
+
+</body>
+</html>
