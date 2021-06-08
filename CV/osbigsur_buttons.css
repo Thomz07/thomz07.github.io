@@ -5,6 +5,7 @@
   transition: 0.3s;
   padding: 10px;
   margin: auto;
+  cursor: pointer;
 }
 
 .osbigsur:hover {
