@@ -20,7 +20,7 @@
 			<div id="green_button" class="close_button"></div>
 			<div id="time"></div>
 		</div>
-		<div><img src="profile_picture.jpg" id="profile_picture"></div>
+		<div><img src="profile_picture.jpg" id="profile_picture" onclick="changePfp()"></div>
 		<div id="nom_prenom_block">
 			<a>Thomas Laffay</a><br>
 			<a>25/08/2003</a><br><br>
@@ -159,6 +159,15 @@
 		function chronoReset(){
 			document.getElementById("time").innerHTML = "0:00:00:000"
 			start = new Date()
+		}
+
+		var click = 0
+		function changePfp(){
+			click = click + 1;
+			console.log(click)
+			if(click>10){
+				document.getElementById("profile_picture").src = "profile_picture2.png"
+			}
 		}
 	</script>
 
