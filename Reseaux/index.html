@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TU Réseaux</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="osbigsur_buttons.css">
+    <link rel="stylesheet" href="vtwindow.css">
+    <link rel="stylesheet" href="vtwindow-theme.material.css">
+    <link rel="stylesheet" href="vtwindow-theme.osx.css">
+    <script src="build/vtwindow.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="wallpaper">
+		<img id="wallpaper_image">
+	</div>
+
+    <template id="osx">
+        <div role="dialog" aria-label="" class="vt-window-osx">
+            <div name="header" class="">
+                <span name="title">${content.title}</span>
+                <span name="controls">
+                    <button name="close" class="" title="Close"></button>
+                    <button name="minimize" class="" title="Minimize"></button>
+                    <button name="maximize" class="" title="Maximize"></button>
+                    <button name="popout" class="" title="Deattatch"></button>
+                </span>
+            </div>
+            <div name="body">
+                ${content.body}
+                <input type="text">
+            </div>
+            <div name="footer">
+                <div name="grab"></div>
+            </div>
+        </div>
+    </template>
+
+    <script> 
+
+        function getRandomInt(max) {
+			return Math.floor(Math.random() * max);
+		}
+
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var mainPage = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true, closable: false });
+        mainPage.setTitle('Cours Réseau 2021');
+        mainPage.setBody(`
+        <div id="realisations_block" >
+            <div id="buttons">
+                <div class="liste_macOS" onclick="openTab1()"><img src="img/dossier.png" width="20px" class="folderImages">&nbsp;&nbsp;Introduction aux réseaux</div>
+                <div class="liste_macOS" onclick="openTab2()"><img src="img/dossier.png" width="20px" class="folderImages">&nbsp;&nbsp;Les modèles OSI et TCP/IP</div>
+                <div class="liste_macOS" onclick="openTab3()"><img src="img/dossier.png" width="20px" class="folderImages">&nbsp;&nbsp;Les bases du réseau</div>
+                <div class="liste_macOS" onclick="openTab4()"><img src="img/dossier.png" width="20px" class="folderImages">&nbsp;&nbsp;Les principaux protocoles</div>
+                <div class="liste_macOS" onclick="openTab5()"><img src="img/dossier.png" width="20px" class="folderImages">&nbsp;&nbsp;L’organisation du réseau</div>
+                <div class="liste_macOS" onclick="openTab6()"><img src="img/dossier.png" width="20px" class="folderImages">&nbsp;&nbsp;README.MD</div>
+            </div>
+        </div>
+        `);
+        mainPage.width = 600;
+        mainPage.height = 250;
+        mainPage.top = getRandomArbitrary(50,$(document).height()-mainPage.height-50);
+        mainPage.left = getRandomArbitrary(50,$(document).width()-mainPage.width-50);
+
+        mainPage.mount();
+        mainPage.focus();
+
+        function openTab1(){
+            var page1 = new VtWindow(null, { template: osx.innerHTML, resizable: false, maximizable: true , closable: true});
+            page1.setTitle('Introduction aux réseaux');
+            page1.setBody(`
+            <iframe id="Introduction"
+                title="Introduction"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="Introduction.html">
+            </iframe>
+            `);
+            page1.width = 700;
+            page1.height = 600;
+            page1.top = getRandomArbitrary(50,$(document).height()-page1.height-50);
+            page1.left = getRandomArbitrary(50,$(document).width()-page1.width-50);
+            
+            page1.mount();
+            page1.focus();
+
+            console.log(page1.left, page1.width);
+        }
+
+        function openTab2(){
+            var page2 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true , closable: true});
+            page2.setTitle('Les modèles OSI et TCP/IP');
+            page2.setBody(`
+            <iframe id="OSI TCP/IP"
+                title="OSI TCP/IP"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="OSI TCP IP.html">
+            </iframe>
+            `);
+            page2.width = 600;
+            page2.height = 500;
+            page2.top = getRandomArbitrary(50,$(document).height()-page2.height-50);
+            page2.left = getRandomArbitrary(50,$(document).width()-page2.width-50);
+
+            page2.mount();
+            page2.focus();
+        }
+
+        function openTab3(){
+            var page3 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true, closable: true});
+            page3.setTitle('Les bases du réseau');
+            page3.setBody(`
+            <iframe id="AdresseIP"
+                title="AdresseIP"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="AdresseIP.html">
+            </iframe>
+            `);
+            page3.width = 600;
+            page3.height = 500;
+            page3.top = getRandomArbitrary(50,$(document).height()-page3.height-50);
+            page3.left = getRandomArbitrary(50,$(document).width()-page3.width-50);
+
+            page3.mount();
+            page3.focus();
+        }
+
+        function openTab4(){
+            var page4 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true, closable: true});
+            page4.setTitle('Les principaux protocoles');
+            page4.setBody(`
+            <iframe id="Protocoles"
+                title="Protocoles"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="Protocoles.html">
+            </iframe>
+            `);
+            page4.width = 600;
+            page4.height = 500;
+            page4.top = getRandomArbitrary(50,$(document).height()-page4.height-50);
+            page4.left = getRandomArbitrary(50,$(document).width()-page4.width-50);
+
+            page4.mount();
+            page4.focus();
+        }
+
+        function openTab5(){
+            var page5 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true, closable: true});
+            page5.setTitle("L'organisation du réseau");
+            page5.setBody(`
+            <iframe id="Organisation"
+                title="Organisation"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="Organisation.html">
+            </iframe>
+            `);
+            page5.width = 600;
+            page5.height = 600;
+            page5.top = getRandomArbitrary(50,$(document).height()-page5.height-50);
+            page5.left = getRandomArbitrary(50,$(document).width()-page5.width-50);
+
+            page5.mount();
+            page5.focus();
+        }
+
+        function openTab6(){
+            var page6 = new VtWindow(null, { template: osx.innerHTML, resizable: true, maximizable: true, closable: true});
+            page6.setTitle("README.MD");
+            page6.setBody(`
+            <iframe id="README.MD"
+                title="README.MD"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                src="tuto.html">
+            </iframe>
+            `);
+            page6.width = 600;
+            page6.height = 600;
+            page6.top = getRandomArbitrary(50,$(document).height()-page6.height-50);
+            page6.left = getRandomArbitrary(50,$(document).width()-page6.width-50);
+
+            page6.mount();
+            page6.focus();
+        }
+
+        var images = ["https://512pixels.net/downloads/macos-wallpapers-thumbs/10-9--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-10--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-11--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-12--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-13--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-14-Day-Thumb.jpg"];
+		x = images[getRandomInt(images.length)];
+		document.getElementById("wallpaper_image").src = x;
+
+    </script>
+</body>
+
+</html>

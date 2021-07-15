@@ -1,0 +1,271 @@
+@font-face {
+  font-family: 'SFNSDisplayLight';
+  src: url('fonts/SFNSDisplayLight.eot');
+  src: url('fonts/SFNSDisplayLight.eot') format('embedded-opentype'),
+       url('fonts/SFNSDisplayLight.woff2') format('woff2'),
+       url('fonts/SFNSDisplayLight.woff') format('woff'),
+       url('fonts/SFNSDisplayLight.ttf') format('truetype'),
+       url('fonts/SFNSDisplayLight.svg#SFNSDisplayLight') format('svg');
+}
+
+@font-face {
+  font-family: 'SFProDisplayBlack';
+  src: url('fonts/SFProDisplayBlack.eot');
+  src: url('fonts/SFProDisplayBlack.eot') format('embedded-opentype'),
+       url('fonts/SFProDisplayBlack.woff2') format('woff2'),
+       url('fonts/SFProDisplayBlack.woff') format('woff'),
+       url('fonts/SFProDisplayBlack.ttf') format('truetype'),
+       url('fonts/SFProDisplayBlack.svg#SFProDisplayBlack') format('svg');
+}
+
+.vt-window-osx {
+    background: white;
+    border-radius: 6px;
+   
+      line-height: 1.5;
+      /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+      font-weight: normal;*/
+      font-family: "SFNSDisplayLight";
+      color: rgba(0,0,0,0.87);
+
+    line-height: 1.5;
+    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: normal;*/
+    font-family: "SFNSDisplayLight";
+    color: rgba(0,0,0,0.87);
+
+  }
+  .vt-window-osx.virtual {
+    /* box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0px 5px 51px 0px rgba(0, 0, 0, 0.3),
+                0px 0px 2px rgba(0,0,0,0.5)
+  }
+  .vt-window-osx.virtual.focus {
+    /* box-shadow:
+      0 9px 46px 8px rgba(0, 0, 0, 0.14),
+      0 11px 15px -7px rgba(0, 0, 0, 0.12),
+      0 24px 38px 3px rgba(0, 0, 0, 0.2); */
+      
+      box-shadow: 0px 22px 66px 0px rgba(0, 0, 0, 0.5),
+                  0px 0px 2px rgba(0,0,0,0.5);
+  }
+  .vt-window-osx.windowed {
+    
+  }
+  .vt-window-osx.windowed [name='header'] {
+    
+  }
+  .vt-window-osx.windowed [name='controls'] {
+    
+  }
+  .vt-window-osx.minimized {
+    
+  }
+  .vt-window-osx.minimized [name='popout'],
+  .vt-window-osx.minimized [name='maximize'],
+  .vt-window-osx.minimized [name='close'] {
+    
+  }
+  .vt-window-osx.minimized [name='body'],
+  .vt-window-osx.minimized [name='footer'] {
+    
+  }
+  .vt-window-osx.maximized {
+   
+  }
+  .vt-window-osx.maximized [name='body'] {
+    
+  }
+  .vt-window-osx [name='header'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    
+    
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab;
+    height: 22px;
+    
+    background: rgb(246,246,246);
+
+    border-top: 1px solid rgb(245,244,245);
+    border-bottom: 1px solid rgb(209, 209, 209);
+
+    opacity: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .vt-window-osx.focus [name='header'] {
+    background: rgb(232,230,232);
+    background: -moz-linear-gradient(top, rgb(232,230,232) 0%, rgb(228,226,228) 20%, rgb(213,211,213) 80%, rgb(210,208,210) 100%);
+    background: -webkit-linear-gradient(top, rgb(232,230,232) 0%,rgb(228,226,228) 20%,rgb(213,211,213) 80%,rgb(210,208,210) 100%);
+    background: linear-gradient(to bottom, rgb(232,230,232) 0%,rgb(228,226,228) 20%,rgb(213,211,213) 80%,rgb(210,208,210) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e6e8', endColorstr='#d2d0d2',GradientType=0 );
+    
+    border-top: 1px solid rgb(245,244,245);
+    border-bottom: 1px solid rgb(179,177,179);
+    
+
+    opacity: 1;
+  }
+  .vt-window-osx [name='title'] {
+    color: black;
+    /* font-weight: bold; */
+    text-align: center;
+    line-height: 22px;
+    margin: 0 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    line-height: 20px;
+
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: subpixel-antialiased;
+    opacity: 0.4;
+  }
+  .vt-window-osx.focus [name='title'] {
+    opacity: 1;
+  }
+  .vt-window-osx [name='controls'] {
+    position: absolute;
+    left: 4px;
+    display: flex; /*remove space between buttons*/
+  }
+  .vt-window-osx [name='controls'] button {
+    position: relative;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+  }
+  .vt-window-osx [name='controls'] button:before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
+
+    border: 1px solid rgb(207, 207, 207);
+    background: rgb(219, 219, 219);
+  }
+
+  .vt-window-osx [name='controls'] button:disabled:before {
+    border: 1px solid rgb(207, 207, 207);
+    background: rgb(219, 219, 219);
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="close"]:before {
+    border: 1px solid rgb(229,66,67);
+    background: rgb(255,94,92);
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="maximize"]:before {
+    border: 1px solid rgb(20,174,21);
+    background: rgb(55,201,64);
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="minimize"]:before {
+    border: 1px solid rgb(226,159,64);
+    background: rgb(255,189,77);
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="popout"]:before {
+    border: 1px solid rgb(64, 145, 226);
+    background: rgb(92, 173, 255);
+  }
+
+  .vt-window-osx [name='controls'] button[name="popout"]:disabled {
+    display: none;
+  }
+
+  .vt-window-osx.focus [name='controls'] button:disabled:before {
+    border: 1px solid rgb(180,180,180);
+    background: rgb(204,204,204);
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="close"]:hover {
+    cursor: pointer;
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="minimize"]:hover {
+    cursor: pointer;
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="maximize"]:hover {
+    cursor: pointer;
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="close"]:disabled:hover {
+    cursor: auto;
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="minimize"]:disabled:hover {
+    cursor: auto;
+  }
+
+  .vt-window-osx.focus [name='controls'] button[name="maximize"]:disabled:hover {
+    cursor: auto;
+  }
+
+  .vt-window-osx [name='grab'] {
+    /* cursor: nwse-resize;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center; */
+  }
+  .vt-window-osx [name='grab']:after {
+    /* position: abosolute;
+    display: block;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    content: '...'; */
+  }
+  .vt-window-osx [name='body'] {
+    /* position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; */
+    background: white;
+  }
+  .vt-window-osx.drag {
+    /* will-change: top, left, width, height, transform; */
+  }
+  
+  .vt-window-osx.low-end.drag {
+    /* box-shadow: none !important;
+    border: 1px solid gray; */
+  }
+  
+  .vt-window-osx.low-end.drag {
+    /* display: none; */
+    /* transition: all 500ms linear; */
+  }
+  
+  /* fix issued with iframes */
+  .vt-window-osx:not(.focus) iframe {
+    /* pointer-events: none; */
+  }
+  .vt-window-osx.drag [name='body'] {
+    /* pointer-events: none; */
+  }
+  
