@@ -33,6 +33,7 @@
   .canvas {
     width: 100vw;
     height: 100vh;
+    position: fixed;
   }
 
   #mainContainer {
@@ -97,26 +98,15 @@
     border-color: #00c01d;
   }
   
-  @media (prefers-color-scheme: dark) {
-    .container {
-      background-color: rgba(0, 0, 0, 0.5);
-      border: solid 0.5px #1c1c1c;
-    }
-
-    .navBar {
-      background-color:#353535;
-      border : solid #1c1c1c 0.5px;
-    }
-  }
-
+  
   .container-small {
     flex-basis: calc(40% - 20px);
   }
-
+  
   .container-big {
     flex-basis: calc(60% - 20px);
   }
-
+  
   @media screen and (max-width: 1200px) {
     .container-small, .container-big {
       flex-basis: calc(90% - 20px);
@@ -129,6 +119,28 @@
     }
   }
   
+  #picture {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    background-image: url();
+    border: solid 0.5px #8d8c8c;
+    margin:20px;
+  }
   
-  
+  @media (prefers-color-scheme: dark) {
+    .container {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: solid 0.5px #1c1c1c;
+    }
+
+    .navBar {
+      background-color:#353535;
+      border : solid #1c1c1c 0.5px;
+    }
+
+    #picture {
+      border: solid 0.5px #1c1c1c;
+    }
+  }
   
