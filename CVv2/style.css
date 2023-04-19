@@ -123,5 +123,12 @@
     }
   }
   
+  @media screen and (max-width: 600px) {
+    .container-small, .container-big {
+      flex-basis: calc(100% - 20px);
+    }
+  }
+  
+  
   
   
