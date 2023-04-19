@@ -50,7 +50,7 @@
     height: 50%;
     max-height: calc(50% - 20px); /* 50% pour 2 lignes, en soustrayant 20px pour les marges */
     min-height: 350px;
-    min-width: 400px;
+    min-width: 300px;
     border-radius: 15px;
     margin: 10px;
     box-sizing: border-box;
