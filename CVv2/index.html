@@ -18,7 +18,15 @@
                 <div id="reduceButton" class="navButton"></div>
                 <div id="expandButton" class="navButton"></div>
             </div>
-            <img id="picture" src ="https://github.com/Thomz07/thomz07.github.io/blob/master/CV/profile_picture.jpg?raw=true"/>
+            <div class="containerContent">
+                <div id="pictureNameContainer">
+                    <img id="picture" alt="Thomas Laffay photo" loading="lazy" src ="https://github.com/Thomz07/thomz07.github.io/blob/master/CV/profile_picture.jpg?raw=true"/>
+                    <p id="nomPrenom">Thomas Laffay</p>
+                    <p id="dateDeNaissance">25/08/2003</p>
+                </div>
+                <div id="infoAboutMeContainer">
+                </div>
+            </div>
         </div>
         <div class="container container-big">
             <div class="navBar">
@@ -53,9 +61,6 @@
         pointsInPath
         } from "https://cdn.skypack.dev/@georgedoescode/generative-utils@1.0.0";
         import tinycolor from "https://cdn.skypack.dev/tinycolor2@1.4.2";
-        import "https://cdn.skypack.dev/@svgdotjs/svg.filter.js";
-        import copy from "https://cdn.skypack.dev/copy-to-clipboard@3.3.1";
-        import { gsap } from "https://cdn.skypack.dev/gsap@3.6.0";
 
         const svg = SVG(".canvas");
         const { width, height } = svg.viewbox();
