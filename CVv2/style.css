@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
   }
+  a {
+    color:#0000EE;
+  }
   
   html {
     -webkit-font-smoothing: antialiased;
@@ -18,6 +21,7 @@
       Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: hsl(0, 0%, 10%);
     background: hsl(0, 0%, 100%);
+    color :#393939
   }
   
   .canvas-wrapper {
@@ -123,13 +127,20 @@
     display:flex;
     position: relative;
     width:100%;
-    flex-flow: row wrap;
     height: auto;
     min-height:355px;
-    align-items: center;
-    padding:10px;
+    padding:30px;
     /* background-color: white;  */
     justify-content: center; 
+  }
+
+  #info {
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  #projets {
+    flex-flow: column wrap;
   }
 
   #formationScolaireCompetences {
@@ -159,13 +170,28 @@
     margin:20px;
   }
 
-  .skill-container {
+  .tweakImages {
       display: flex;
       align-items: center;
   }
 
-  .skill-container p {
+  .tweakImages p {
       margin-right: 10px;
+  }
+
+  .tweakIcons {
+    width:25px;
+    margin-left:5px;
+    border-radius: 5px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 36px;
+  }
+
+  #projetsContainer {
+    padding: 20px;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -182,6 +208,10 @@
 
     #picture {
       border: solid 0.5px #1c1c1c;
+    }
+
+    a {
+      color:#48cbff;
     }
   }
   
