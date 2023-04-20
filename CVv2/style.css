@@ -58,6 +58,7 @@
     backdrop-filter: blur(10px) saturate(200%);
     border: solid 0.5px #8d8c8c;
     background-color: rgba(255, 255, 255, 0.5);  
+    justify-content: center;
   }
 
   .navBar {
@@ -123,10 +124,11 @@
     position: relative;
     width:100%;
     flex-flow: row wrap;
-    height: 355px;
+    height: auto;
+    min-height:355px;
     align-items: center;
     padding:10px;
-    /* background-color: white; */
+    background-color: white; 
     justify-content: center; 
   }
 
