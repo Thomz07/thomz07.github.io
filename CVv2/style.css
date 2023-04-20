@@ -194,6 +194,11 @@
     padding: 10px;
     line-height: 25px;
   }
+
+  #projetsContainer li {
+    padding-bottom: 10px;
+  }
+  
   
   @media (prefers-color-scheme: dark) {
     .container {
