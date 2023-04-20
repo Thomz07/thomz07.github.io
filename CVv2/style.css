@@ -128,12 +128,11 @@
     min-height:355px;
     align-items: center;
     padding:10px;
-    background-color: white; 
+    /* background-color: white;  */
     justify-content: center; 
   }
 
   #formationScolaireCompetences {
-    background-color: blue;
     flex:1;
   }
 
