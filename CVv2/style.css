@@ -67,9 +67,9 @@
     opacity: 2;
     height:30px;
     border-radius:15px 15px 0px 0px;
-    margin-top:-0.5px;
-    margin-left:-0.5px;
-    margin-right:-0.5px;
+    margin-top:-1px;
+    margin-left:-1px;
+    margin-right:-1px;
     display: flex;
     flex-wrap: nowrap;
   }
@@ -146,7 +146,7 @@
   }
 
   #dateDeNaissance {
-    padding-top: 10px;
+    padding-top: 5px;
     text-align: center;
   }
   
