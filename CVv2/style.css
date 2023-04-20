@@ -125,7 +125,9 @@
     flex-flow: row wrap;
     height: 355px;
     align-items: center;
-    justify-content: center; /*temporary*/
+    padding:10px;
+    /*background-color: white;*/
+    /*justify-content: center; temporary*/
   }
 
   #pictureNameContainer {
@@ -134,7 +136,7 @@
   
   #nomPrenom {
     font-weight: bold;
-    text-align:center
+    text-align:center;
   }
 
   #dateDeNaissance {
@@ -142,9 +144,10 @@
     text-align: center;
   }
 
-  #infoAboutMeContainer {
-    background-color: blue;
+  #formationScolaireCompetences {
+    /*background-color: blue;*/
     width:auto;
+    flex:2;
   }
   
   #picture {
@@ -154,6 +157,15 @@
     background-image: url();
     border: solid 0.5px #8d8c8c;
     margin:20px;
+  }
+
+  .skill-container {
+      display: flex;
+      align-items: center;
+  }
+
+  .skill-container p {
+      margin-right: 10px;
   }
   
   @media (prefers-color-scheme: dark) {
