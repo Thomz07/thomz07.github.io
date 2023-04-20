@@ -126,8 +126,13 @@
     height: 355px;
     align-items: center;
     padding:10px;
-    /*background-color: white;*/
+    /* background-color: white; */
     justify-content: center; 
+  }
+
+  #formationScolaireCompetences {
+    background-color: blue;
+    flex:1;
   }
 
   #pictureNameContainer {
@@ -142,12 +147,6 @@
   #dateDeNaissance {
     padding-top: 10px;
     text-align: center;
-  }
-
-  #formationScolaireCompetences {
-    /*background-color: blue;*/
-    width:auto;
-    flex:2;
   }
   
   #picture {
