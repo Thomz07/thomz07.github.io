@@ -147,6 +147,10 @@
     flex-flow: column wrap;
   }
 
+  #expPro {
+    flex-flow: column wrap;
+  }
+
   #formationScolaireCompetences {
     flex:1;
   }
@@ -200,6 +204,15 @@
   }
 
   #projetsContainer li {
+    padding-bottom: 10px;
+  }
+
+  #expProContainer {
+    padding: 10px;
+    line-height: 25px;
+  }
+
+  #expProContainer li {
     padding-bottom: 10px;
   }
   
