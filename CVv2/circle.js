@@ -16,4 +16,8 @@ function rotateSquares() {
     requestAnimationFrame(rotateSquares);
 }
 
+function showText(outil, div_name) {
+    document.getElementById(div_name).innerHTML = outil
+}
+
 rotateSquares();

@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css"/>
     <!--Code for the background taken from : https://codepen.io/georgedoescode/pen/bGBzGKZ -->
 </head>
-<body>
+<body onload="generate()">
     <div class="canvas-wrapper">
-        <svg class="canvas" viewBox="0 0 1920 1080" preserveAspectRatio="xMaxYMid slice"></svg>
+        <svg class="canvas" viewBox="0 0 854 480" preserveAspectRatio="xMaxYMid slice"></svg>
     </div>
     <div id="mainContainer">
         <div id="infoContainer" class="container container-small">
@@ -105,7 +105,7 @@
             <div class="containerContent" id="outils">
                 <div id="container-circle">
                     <div class="circle">
-                        <div class="square"></div>
+                        <div class="square" onclick="showText('SALUUUUUT','Text')"></div>
                         <div class="square"></div>
                         <div class="square"></div>
                         <div class="square"></div>
@@ -115,12 +115,14 @@
                     </div>
                 </div>
                 <div id="container-circle-info">
-                    <p>Salut ludo tu vas bon week</p>
+                    <p id="Text">Salut ludo tu vas bon week</p>
                 </div>
             </div>
             <script src="circle.js"></script>
         </div>
     </div>
+    
+    
     <script type="module">
         console.clear();
 
@@ -132,6 +134,7 @@
         pointsInPath
         } from "https://cdn.skypack.dev/@georgedoescode/generative-utils@1.0.0";
         import tinycolor from "https://cdn.skypack.dev/tinycolor2@1.4.2";
+        document.addEventListener("DOMContentLoaded", () => {
 
         const svg = SVG(".canvas");
         const { width, height } = svg.viewbox();
@@ -197,6 +200,8 @@
         }
 
         generate();
+
+});
     </script>
 </body>
 </html>
