@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css"/>
     <!--Code for the background taken from : https://codepen.io/georgedoescode/pen/bGBzGKZ -->
 </head>
-<body onload="generate()">
+<body onload="">
     <div class="canvas-wrapper">
         <svg class="canvas" viewBox="0 0 854 480" preserveAspectRatio="xMaxYMid slice"></svg>
     </div>
@@ -105,17 +105,16 @@
             <div class="containerContent" id="outils">
                 <div id="container-circle">
                     <div class="circle">
-                        <div class="square" onclick="showText('SALUUUUUT','Text')"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
-                        <div class="square"></div>
+                        <img src="img/affinity.png" class="square" onclick="showText('affinity','Text')">
+                        <img src="img/python.png" class="square" onclick="showText('python','Text')">
+                        <img src="img/uipath.png" class="square" onclick="showText('uipath','Text')">
+                        <img src="img/objc.png" class="square" onclick="showText('objc','Text')">
+                        <img src="img/robocorp.png" class="square" onclick="showText('robocorp','Text')">
+                        <img src="img/html-css-js-light.png" class="square" id="html-css-js-img">
                     </div>
                 </div>
                 <div id="container-circle-info">
-                    <p id="Text">Salut ludo tu vas bon week</p>
+                    <p id="Text">Cliquez sur une icône !</p>
                 </div>
             </div>
             <script src="circle.js"></script>
@@ -124,84 +123,138 @@
     
     
     <script type="module">
-        console.clear();
 
-        import { SVG } from "https://cdn.skypack.dev/@svgdotjs/svg.js";
-        import {
-        random,
-        map,
-        spline,
-        pointsInPath
-        } from "https://cdn.skypack.dev/@georgedoescode/generative-utils@1.0.0";
-        import tinycolor from "https://cdn.skypack.dev/tinycolor2@1.4.2";
-        document.addEventListener("DOMContentLoaded", () => {
-
-        const svg = SVG(".canvas");
-        const { width, height } = svg.viewbox();
-
-        function wave(start, end, gradient) {
+    console.clear();
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector(".canvas");
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      const svgNS = "http://www.w3.org/2000/svg";
+    
+      const svg = document.createElementNS(svgNS, "svg");
+      svg.setAttribute("width", width);
+      svg.setAttribute("height", height);
+      container.appendChild(svg);
+    
+      function random(min, max, integer = false) {
+        const value = Math.random() * (max - min) + min;
+        return integer ? Math.floor(value) : value;
+      }
+    
+      function map(value, start1, stop1, start2, stop2) {
+        return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+      }
+    
+      function spline(points, tension = 1, close = false) {
+        const size = points.length;
+        const lastIndex = size - 1;
+        const path = [];
+    
+        for (let i = 0; i < size - 1; i++) {
+          const p0 = i > 0 ? points[i - 1] : points[0];
+          const p1 = points[i];
+          const p2 = points[i + 1];
+          const p3 = i !== lastIndex - 1 ? points[i + 2] : p2;
+    
+          const cp1 = {
+            x: p1.x + ((p2.x - p0.x) / 6) * tension,
+            y: p1.y + ((p2.y - p0.y) / 6) * tension,
+          };
+          const cp2 = {
+            x: p2.x - ((p3.x - p1.x) / 6) * tension,
+            y: p2.y - ((p3.y - p1.y) / 6) * tension,
+          };
+    
+          path.push(`C ${cp1.x} ${cp1.y}, ${cp2.x} ${cp2.y}, ${p2.x} ${p2.y}`);
+        }
+    
+        return `M ${points[0].x} ${points[0].y} ` + path.join(" ");
+      }
+    
+      function wave(start, end, gradient) {
         const numSteps = random(4, 8, true);
         const step = 1 / numSteps;
         const randomRange = random(32, 64);
-
+    
         const points = [];
-        let pointPosition = 0;
-
+    
         for (let i = 0; i <= numSteps; i++) {
-            const step = map(i, 0, numSteps, 0, 1);
-
-            let x = lerp(start.x, end.x, step);
-            let y = lerp(start.y, end.y, step);
-
-            if (i !== 0 && i !== numSteps) {
+          const step = map(i, 0, numSteps, 0, 1);
+    
+          let x = lerp(start.x, end.x, step);
+          let y = lerp(start.y, end.y, step);
+    
+          if (i !== 0 && i !== numSteps) {
             x += random(-randomRange, randomRange);
             y += random(-randomRange, randomRange);
-            }
-
-            points.push({ x, y });
+          }
+    
+          points.push({ x, y });
         }
-
+    
         const pathData =
-            spline(points, 1, false) + `L ${end.x} ${height} L ${start.x} ${height} Z`;
-
-        const path = svg.path(pathData).attr("fill", gradient);
-        }
-
-        function lerp(v0, v1, t) {
+          spline(points, 1, false) + `L ${end.x} ${height} L ${start.x} ${height} Z`;
+    
+        const path = document.createElementNS(svgNS, "path");
+        path.setAttribute("d", pathData);
+        path.setAttribute("fill", `url(#${gradient.id})`);
+        svg.appendChild(path);
+      }
+    
+      function lerp(v0, v1, t) {
         return v0 * (1 - t) + v1 * t;
-        }
-
-        function generate() {
+      }
+    
+      function generate() {
         const numWaves = 5;
-        const base = tinycolor(`hsl(${random(0,360)}, 65%, 55%)`);
-        const colors = base.analogous(6);
-
-        svg.rect(width, height).fill(random(colors).clone().darken(40).toString());
-
+        const hue = random(0, 360);
+        const baseColor = `hsl(${hue}, 65%, 55%)`;
+    
+        const rect = document.createElementNS(svgNS, "rect");
+        rect.setAttribute("width", width);
+        rect.setAttribute("height", height);
+        rect.setAttribute("fill", baseColor);
+        svg.appendChild(rect);
+    
         for (let i = 0; i < numWaves; i++) {
-            const randomOffset = random(-50, 50);
-            const originY = map(i, 0, numWaves, -height / 2, height / 3) + randomOffset;
-            const endY = map(i, 0, numWaves, 0, 1000) + randomOffset;
-
-            const color = random(colors).clone();
-            color.darken(5 * (2 - i + 1));
-
-            const gradientOffset = map(i, 0, numWaves, 0.1, 1);
-
-            let gradient = svg.gradient("linear", function (add) {
-            add.stop(0, color.clone().lighten(30).toHexString());
-            add.stop(gradientOffset, color.clone().spin(60).toHexString());
-            });
-
-            gradient.from(0.5, 0).to(0, 1);
-
-            wave({ x: 0, y: originY }, { x: width, y: endY }, gradient);
-        }
-        }
-
-        generate();
-
-});
+          const randomOffset = random(-50, 50);
+          const originY = map(i, 0, numWaves, -height / 2, height / 3) + randomOffset;
+          const endY = map(i, 0, numWaves, 0, 1000) + randomOffset;
+    
+          const gradientOffset = map(i, 0, numWaves, 0.1, 1);
+    
+          const gradient = document.createElementNS(svgNS, "linearGradient");
+          gradient.id = `gradient-${i}`;
+          gradient.setAttribute("x1", "0.5");
+          gradient.setAttribute("y1", "0");
+          gradient.setAttribute("x2", "0");
+          gradient.setAttribute("y2", "1");
+    
+          const stop1 = document.createElementNS(svgNS, "stop");
+          stop1.setAttribute("offset", "0");
+          stop1.setAttribute(
+            "stop-color",
+            `hsl(${(hue + i * 30) % 360}, 65%, ${85}%)`
+          );
+          gradient.appendChild(stop1);
+    
+    const stop2 = document.createElementNS(svgNS, "stop");
+    stop2.setAttribute("offset", gradientOffset);
+    stop2.setAttribute(
+      "stop-color",
+      `hsl(${(hue + 60 + i * 30) % 360}, 65%, ${55}%)`
+    );
+    gradient.appendChild(stop2);
+    
+    svg.appendChild(gradient);
+    
+    wave({ x: 0, y: originY }, { x: width, y: endY }, gradient);
+    }
+    }
+    
+    generate();
+    });
     </script>
 </body>
 </html>

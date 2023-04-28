@@ -31,7 +31,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1;
+    z-index: 0;
   }
   
   .canvas {
@@ -231,9 +231,8 @@
   }
 
   #container-circle-info {
-    width:200px;
+    width:300px;
     height:100%;
-    background-color: blue;
     margin-left:20px;
   }
 
@@ -248,12 +247,32 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      background-color: white;
-      border-radius:10px;
+      background-color: #d9d9d9;
+      border : solid #8d8c8c 0.5px;
+      border-radius:15px;
       top: 50%;
       left: 50%;
-      opacity: 0.5;
+      opacity: 1;
+      transition: all 0.5s ease;
+      cursor: pointer;
   }
+
+
+  #html-css-js-img {
+    content: url("img/html-css-js-light.png");
+  }
+
+  #Text {
+    text-align: center;
+  }
+
+  .selected {
+    top: calc(50% - 25px) !important; /* la moitié de la largeur de l'icône (50px) */
+    left: calc(50% - 25px) !important; /* la moitié de la hauteur de l'icône (50px) */
+    transform: none !important;
+    transition: all 0.5s ease;
+  }
+
   
   @media (prefers-color-scheme: dark) {
     .container {
@@ -273,6 +292,15 @@
 
     a {
       color:#48cbff;
+    }
+
+    .square {
+      background-color: #353535;
+      border : solid #1c1c1c 0.5px;
+    }
+
+    #html-css-js-img {
+      content: url("img/html-css-js-dark.png");
     }
   }
   
