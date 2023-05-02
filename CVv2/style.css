@@ -113,7 +113,7 @@
     height: auto;
     min-height:355px;
     padding:30px;
-     background-color: blue;  
+     /* background-color: blue;   */
     justify-content: center; 
   }
 
