@@ -113,7 +113,7 @@
     height: auto;
     min-height:355px;
     padding:30px;
-    /* background-color: white;  */
+     background-color: red;  
     justify-content: center; 
   }
 
@@ -289,7 +289,7 @@
   @media screen and (max-width: 767px) {
 
     .container-small, .container-big {
-      flex-basis: calc(100% - 20px);
+      flex-basis: calc(100%);
       max-width: 100%;
     }
     #formationScolaireCompetences {
