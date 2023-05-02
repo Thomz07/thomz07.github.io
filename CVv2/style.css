@@ -113,7 +113,7 @@
     height: auto;
     min-height:355px;
     padding:30px;
-     background-color: red;  
+     background-color: blue;  
     justify-content: center; 
   }
 
@@ -296,15 +296,24 @@
       text-align: center;
       padding-top:20px;
     }
+
+    #container-circle-info {
+      margin-left:0px;
+    }
   }
   @media screen and (max-width: 1200px) {
     #container-circle-info {
       width: 90%;
     }
-  
     #outils {
       flex-direction: column;
       align-items: center;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    #formationScolaireCompetences {
+      text-align: center;
+      padding-top:20px;
     }
   }
   
