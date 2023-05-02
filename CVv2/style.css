@@ -23,8 +23,8 @@
     background: hsl(0, 0%, 100%);
     color :#393939
   }
-  
-  .canvas-wrapper {
+
+  #myCanvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -32,13 +32,6 @@
     height: 100%;
     overflow: hidden;
     z-index: 0;
-  }
-  
-  .canvas {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    will-change: transform;
   }
 
   #mainContainer {
@@ -301,6 +294,17 @@
 
     #html-css-js-img {
       content: url("img/html-css-js-dark.png");
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    #container-circle-info {
+      width: 90%;
+    }
+  
+    #outils {
+      flex-direction: column;
+      align-items: center;
     }
   }
   

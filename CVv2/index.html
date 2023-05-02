@@ -6,11 +6,11 @@
     <title>CV Thomas Laffay</title>
     <link rel="stylesheet" href="style.css"/>
     <!--Code for the background taken from : https://codepen.io/georgedoescode/pen/bGBzGKZ -->
+
 </head>
 <body onload="">
-    <div class="canvas-wrapper">
-        <svg class="canvas" viewBox="0 0 854 480" preserveAspectRatio="xMaxYMid slice"></svg>
-    </div>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+
     <div id="mainContainer">
         <div id="infoContainer" class="container container-small">
             <div class="navBar">
@@ -88,7 +88,7 @@
                         <ul>
                             <li style="margin-left:15px;">Stage d'observation chez <a href="https://www.fanuc.eu/fr/fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">FANUC Robotics</a> en 2017</li>
                             <li style="margin-left:15px;">Stage de 1 mois chez <a href="https://a7agencement.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">A7 Agencement</a> en 2021, maintien du site web, création et gestion des réseaux sociaux</li>
-                            <li style="margin-left:15px;">Stage de 4 mois chez <a href="https://resnumerica.org" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Resnumerica</a> en 2021, gestion des réseaux sociaux et organisation du salon Educatec Educatice</li>
+                            <li style="margin-left:15px;">Stage de 4 mois chez <a href="https://resnumerica.org" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Resnumerica</a> en 2021, gestion des réseaux sociaux, organisation du salon Educatec Educatice, rédaction d'article</li>
                             <li style="margin-left:15px;">Contrat étudiant de 10h par week-end chez <a href="https://www.carrefour.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Carrefour</a> Market Davézieux depuis août 2022, caisse et mise en rayon</li>
                             <li style="margin-left:15px;">Création d'évènements avec l'association <a href="https://www.facebook.com/conscrits.boulieu.1" target="_blank" rel="noopener noreferrer" style="text-decoration:none">"Conscrits 2023 Boulieu Saint-Clair Savas"</a>, Soirées privées et matinées</li>
                         </ul>
@@ -121,140 +121,11 @@
         </div>
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.0/chroma.min.js"></script>
+    <script src="background.js"></script>
     
-    <script type="module">
-
-    console.clear();
-    
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.querySelector(".canvas");
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      const svgNS = "http://www.w3.org/2000/svg";
-    
-      const svg = document.createElementNS(svgNS, "svg");
-      svg.setAttribute("width", width);
-      svg.setAttribute("height", height);
-      container.appendChild(svg);
-    
-      function random(min, max, integer = false) {
-        const value = Math.random() * (max - min) + min;
-        return integer ? Math.floor(value) : value;
-      }
-    
-      function map(value, start1, stop1, start2, stop2) {
-        return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
-      }
-    
-      function spline(points, tension = 1, close = false) {
-        const size = points.length;
-        const lastIndex = size - 1;
-        const path = [];
-    
-        for (let i = 0; i < size - 1; i++) {
-          const p0 = i > 0 ? points[i - 1] : points[0];
-          const p1 = points[i];
-          const p2 = points[i + 1];
-          const p3 = i !== lastIndex - 1 ? points[i + 2] : p2;
-    
-          const cp1 = {
-            x: p1.x + ((p2.x - p0.x) / 6) * tension,
-            y: p1.y + ((p2.y - p0.y) / 6) * tension,
-          };
-          const cp2 = {
-            x: p2.x - ((p3.x - p1.x) / 6) * tension,
-            y: p2.y - ((p3.y - p1.y) / 6) * tension,
-          };
-    
-          path.push(`C ${cp1.x} ${cp1.y}, ${cp2.x} ${cp2.y}, ${p2.x} ${p2.y}`);
-        }
-    
-        return `M ${points[0].x} ${points[0].y} ` + path.join(" ");
-      }
-    
-      function wave(start, end, gradient) {
-        const numSteps = random(4, 8, true);
-        const step = 1 / numSteps;
-        const randomRange = random(32, 64);
-    
-        const points = [];
-    
-        for (let i = 0; i <= numSteps; i++) {
-          const step = map(i, 0, numSteps, 0, 1);
-    
-          let x = lerp(start.x, end.x, step);
-          let y = lerp(start.y, end.y, step);
-    
-          if (i !== 0 && i !== numSteps) {
-            x += random(-randomRange, randomRange);
-            y += random(-randomRange, randomRange);
-          }
-    
-          points.push({ x, y });
-        }
-    
-        const pathData =
-          spline(points, 1, false) + `L ${end.x} ${height} L ${start.x} ${height} Z`;
-    
-        const path = document.createElementNS(svgNS, "path");
-        path.setAttribute("d", pathData);
-        path.setAttribute("fill", `url(#${gradient.id})`);
-        svg.appendChild(path);
-      }
-    
-      function lerp(v0, v1, t) {
-        return v0 * (1 - t) + v1 * t;
-      }
-    
-      function generate() {
-        const numWaves = 5;
-        const hue = random(0, 360);
-        const baseColor = `hsl(${hue}, 65%, 55%)`;
-    
-        const rect = document.createElementNS(svgNS, "rect");
-        rect.setAttribute("width", width);
-        rect.setAttribute("height", height);
-        rect.setAttribute("fill", baseColor);
-        svg.appendChild(rect);
-    
-        for (let i = 0; i < numWaves; i++) {
-          const randomOffset = random(-50, 50);
-          const originY = map(i, 0, numWaves, -height / 2, height / 3) + randomOffset;
-          const endY = map(i, 0, numWaves, 0, 1000) + randomOffset;
-    
-          const gradientOffset = map(i, 0, numWaves, 0.1, 1);
-    
-          const gradient = document.createElementNS(svgNS, "linearGradient");
-          gradient.id = `gradient-${i}`;
-          gradient.setAttribute("x1", "0.5");
-          gradient.setAttribute("y1", "0");
-          gradient.setAttribute("x2", "0");
-          gradient.setAttribute("y2", "1");
-    
-          const stop1 = document.createElementNS(svgNS, "stop");
-          stop1.setAttribute("offset", "0");
-          stop1.setAttribute(
-            "stop-color",
-            `hsl(${(hue + i * 30) % 360}, 65%, ${85}%)`
-          );
-          gradient.appendChild(stop1);
-    
-    const stop2 = document.createElementNS(svgNS, "stop");
-    stop2.setAttribute("offset", gradientOffset);
-    stop2.setAttribute(
-      "stop-color",
-      `hsl(${(hue + 60 + i * 30) % 360}, 65%, ${55}%)`
-    );
-    gradient.appendChild(stop2);
-    
-    svg.appendChild(gradient);
-    
-    wave({ x: 0, y: originY }, { x: width, y: endY }, gradient);
-    }
-    }
-    
-    generate();
-    });
+ 
     </script>
 </body>
 </html>

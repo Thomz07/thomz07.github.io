@@ -55,9 +55,9 @@ function showText(outil, div_name) {
         selectedSquare.classList.remove("selected");
         document.getElementById(div_name).innerHTML = "Cliquez sur une icône !";
 
-        setTimeout(() => {
+
             isRotating = true;
-        }, transitionDuration);
+
     } else {
         for (let square of squares) {
             square.classList.remove("selected");
@@ -68,9 +68,7 @@ function showText(outil, div_name) {
             selectedSquare.classList.add("selected");
             document.getElementById(div_name).innerHTML = text;
 
-            setTimeout(() => {
                 isRotating = true;
-            }, transitionDuration);
         }
     }
 }
