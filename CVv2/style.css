@@ -104,16 +104,6 @@
   .container-big {
     flex-basis: calc(60% - 20px);
   }
-  
-  @media screen and (max-width: 1200px) {
-    .container-small, .container-big {
-      flex-basis: calc(90% - 20px);
-    }
-  }
-  
-  @media screen and (max-width: 500px) {
-    
-  }
 
   .containerContent {
     display:flex;
@@ -292,14 +282,6 @@
   }
   
   @media screen and (max-width: 767px) {
-    #container-circle-info {
-      width: 90%;
-    }
-  
-    #outils {
-      flex-direction: column;
-      align-items: center;
-    }
 
     .container-small, .container-big {
       flex-basis: calc(100% - 20px);
@@ -307,6 +289,16 @@
     #formationScolaireCompetences {
       text-align: center;
       padding-top:20px;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    #container-circle-info {
+      width: 90%;
+    }
+  
+    #outils {
+      flex-direction: column;
+      align-items: center;
     }
   }
   
