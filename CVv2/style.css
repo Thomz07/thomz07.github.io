@@ -112,13 +112,7 @@
   }
   
   @media screen and (max-width: 500px) {
-    .container-small, .container-big {
-      flex-basis: calc(100% - 20px);
-    }
-    #formationScolaireCompetences {
-      text-align: center;
-      padding-top:20px;
-    }
+    
   }
 
   .containerContent {
@@ -305,6 +299,14 @@
     #outils {
       flex-direction: column;
       align-items: center;
+    }
+
+    .container-small, .container-big {
+      flex-basis: calc(100% - 20px);
+    }
+    #formationScolaireCompetences {
+      text-align: center;
+      padding-top:20px;
     }
   }
   
