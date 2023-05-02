@@ -190,10 +190,10 @@ class App {
     if (t) {
       let shiftNeeded = false
       this.timestamp = t / 5000
-      this.angle += 0.001
+      //this.angle += 0.001
       
       this.layers.forEach(layer => {
-        layer.progress += 0.001
+        layer.progress += 0.0005
         
         if (layer.progress > 1 + (1 / (this.layers.length - 1))) {
           layer.progress = 0

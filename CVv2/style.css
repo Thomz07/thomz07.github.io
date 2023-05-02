@@ -19,9 +19,6 @@
     padding: 1rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
       Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: hsl(0, 0%, 10%);
-    background: hsl(0, 0%, 100%);
-    color :#393939
   }
 
   #myCanvas {
@@ -32,6 +29,10 @@
     height: 100%;
     overflow: hidden;
     z-index: 0;
+    background-image: url('img/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-2880x1800-1455-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   #mainContainer {
@@ -278,6 +279,10 @@
 
     #html-css-js-img {
       content: url("img/html-css-js-dark.png");
+    }
+
+    #myCanvas {
+      background-image: url('img/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-2880x1800-1432.jpg');
     }
   }
   
