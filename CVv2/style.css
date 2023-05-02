@@ -290,6 +290,7 @@
 
     .container-small, .container-big {
       flex-basis: calc(100% - 20px);
+      max-width: 100%;
     }
     #formationScolaireCompetences {
       text-align: center;
