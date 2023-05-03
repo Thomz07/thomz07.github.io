@@ -47,7 +47,6 @@
 
   .container {
     min-height: 375px;
-    height:auto;
     flex: 1;
     min-width: 100px;
     border-radius: 15px;
@@ -245,10 +244,53 @@
   }
 
   .selected {
-    top: calc(50% - 25px) !important; /* la moitié de la largeur de l'icône (50px) */
-    left: calc(50% - 25px) !important; /* la moitié de la hauteur de l'icône (50px) */
+    top: calc(50% - 25px) !important; 
+    left: calc(50% - 25px) !important; 
     transform: none !important;
     transition: all 0.5s ease;
+  }
+
+  #tweaks {
+    position: relative;
+    display: flex;
+    flex-flow:row nowrap !important;
+    align-items: center;
+    justify-content: center;
+    height:355px;
+    width: 100%;
+    
+  }
+
+  #tweaks-icons-container {
+    
+    display: flex;
+    flex-flow: wrap column;
+    width:30%;
+    height:100%;
+    padding:20px;
+    justify-content: center;
+  }
+
+  .tweak-icons {
+    width: 100px;
+    min-width: 90px;
+    transition: 0.25s;
+    border-radius: 30%;
+    padding:10px;
+  }
+
+  .tweak-icons:hover {
+    transform: translateX(15px);
+    cursor: pointer;
+  }
+
+  #tweaks-icons-description {
+    
+    display: flex;
+    flex-flow: wrap column;
+    width:70%;
+    height:100%;
+    padding:20px;
   }
 
   
