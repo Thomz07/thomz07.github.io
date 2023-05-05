@@ -6,9 +6,10 @@ let angle = 0;
 const affinity = "<strong>Affinity Photo</strong><br><br>Réalisation de montages photos simples et création de visuels pour divers projets";
 const python = "<strong>Python</strong><br><br>Développement de scripts pour automatiser des processus lors d'un stage<br><br>Extraction de données à partir de plus de 50 000 PDFs";
 const uipath = "<strong>UIPath</strong><br><br>Élaboration de workflows pour préparer le développement de robots pour les clients<br><br>Développement de robots pour des clients dans le secteur immobilier<br><br>Automatisation de la saisie de milliers de données dans un ERP<br><br>Gestion des erreurs et création de rapports";
-const objc = "<strong>Objective-C + Logos</strong><br><br>Conception et développement de tweaks pour iPhone jailbreakés (voir précédemment)<br><br>Utilisation de <a href='https://theos.dev' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Theos</a> pour compiler les tweaks avec le langage <a href='https://theos.dev/docs/logos' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Logos</a>";
+const objc = "<strong>Objective-C + Logos</strong><br><br>Conception et développement de tweaks pour iPhone jailbreakés en Objective C et C++<br><br>Utilisation de <a href='https://theos.dev' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Theos</a> pour compiler les tweaks avec le langage <a href='https://theos.dev/docs/logos' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Logos</a><br><br>(Plus d'informations dans la fenêtre suivante)";
 const robocorp = "<strong>Robocorp</strong><br><br>Obtention des 4 certifications disponibles sur le site Robocorp et développement de divers petits robots pour m'entraîner";
 const html = "<strong>HTML/CSS/JS</strong><br><br>Création de sites web variés depuis 5 ans, incluant des portfolios comme celui-ci, ainsi que des sites pour des interfaces ou projets scolaires";
+const gsuite = "<strong>G suite / Suite Office</strong><br><br>Maîtrise des suites bureautiques G Suite et Microsoft Office : Google Docs, Sheets, Slides, Forms, ainsi que Word, Excel et PowerPoint"
 
 let isRotating = true;
 const transitionDuration = 500; 
@@ -56,6 +57,10 @@ function showText(outil, div_name) {
         case 'html':
             text = html;
             selectedSquare = document.querySelector('[id="html-css-js-img"]');
+            break;
+        case 'gsuite':
+            text = gsuite;
+            selectedSquare = document.querySelector('[id="gsuite-img"]');
             break;
         default:
             text = "";

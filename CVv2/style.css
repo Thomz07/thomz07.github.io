@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: 1px solid red */
   }
   a {
     color:#0000EE;
@@ -234,11 +235,6 @@
       cursor: pointer;
   }
 
-
-  #html-css-js-img {
-    content: url("img/html-css-js-light.png");
-  }
-
   #Text {
     text-align: center;
   }
@@ -250,13 +246,17 @@
     transition: all 0.5s ease;
   }
 
+  .tweaks-selected {
+    transform: translateX(15px)
+  }
+
   #tweaks {
     position: relative;
     display: flex;
     flex-flow:row nowrap !important;
     align-items: center;
     justify-content: center;
-    height:355px;
+    height:auto;
     width: 100%;
     
   }
@@ -265,7 +265,7 @@
     
     display: flex;
     flex-flow: wrap column;
-    width:30%;
+    width:20%;
     height:100%;
     padding:20px;
     justify-content: center;
@@ -279,20 +279,64 @@
     padding:10px;
   }
 
-  .tweak-icons:hover {
+  .tweak-icons-hover-not-selected:hover {
+    transform: translateX(7.5px);
+    cursor: pointer;
+  }
+
+  .tweak-icons-hover-selected:hover {
     transform: translateX(15px);
     cursor: pointer;
   }
 
   #tweaks-icons-description {
-    
     display: flex;
     flex-flow: wrap column;
-    width:70%;
+    width:80%;
     height:100%;
-    padding:20px;
+    padding:10px;
   }
 
+  #tweak-screenshots-container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 510px;
+  }
+
+  #tweak-screenshots {
+    /* display:flex;
+    flex-flow: wrap row;
+    flex:2;
+    align-items: center; */
+    min-height: 225px;
+    margin-left:-5px;
+    display: inline-block;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #tweak-screenshots-with-buttons {
+    display: flex;
+    flex-flow: nowrap row;
+  }
+
+  .screenshots {
+    display: inline-block;
+    vertical-align: top;
+    width:120px;
+    background-color: red;
+    border : solid #8d8c8c 0.5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
   
   @media (prefers-color-scheme: dark) {
     .container {
@@ -323,17 +367,29 @@
       content: url("img/html-css-js-dark.png");
     }
 
+    #gsuite-img {
+      content: url("img/gsuite-dark.png");
+    }
+
     #myCanvas {
       background-image: url('img/macos-big-sur-apple-layers-fluidic-colorful-dark-wwdc-2020-2880x1800-1432.jpg');
+    }
+
+    .screenshots {
+      border: solid 0.5px #1c1c1c;
+    }
+
+    #previous-button-img {
+      content: url("img/previous-arrow-dark.png");
+    }
+
+    #next-button-img {
+      content: url("img/next-arrow-dark.png");
     }
   }
   
   @media screen and (max-width: 767px) {
 
-    .container-small, .container-big {
-      flex-basis: calc(100%);
-      max-width: 100%;
-    }
     #formationScolaireCompetences {
       text-align: center;
       padding-top:20px;
@@ -342,8 +398,6 @@
     #container-circle-info {
       margin-left:0px;
     }
-  }
-  @media screen and (max-width: 1200px) {
     #container-circle-info {
       width: 90%;
     }
@@ -352,10 +406,19 @@
       align-items: center;
     }
   }
+
   @media screen and (max-width: 1100px) {
     #formationScolaireCompetences {
       text-align: center;
       padding-top:20px;
+    }
+    .container-small, .container-big {
+      flex-basis: calc(100%);
+      max-width: 100%;
+    }
+
+    #tweaks-icons-container {
+      align-items: center;
     }
   }
   
