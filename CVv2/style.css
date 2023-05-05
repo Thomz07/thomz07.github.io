@@ -258,11 +258,11 @@
     justify-content: center;
     height:auto;
     width: 100%;
-    
+    margin-bottom: 20px;
+    min-height: 400px;
   }
 
   #tweaks-icons-container {
-    
     display: flex;
     flex-flow: wrap column;
     width:20%;
@@ -305,10 +305,6 @@
   }
 
   #tweak-screenshots {
-    /* display:flex;
-    flex-flow: wrap row;
-    flex:2;
-    align-items: center; */
     min-height: 225px;
     margin-left:-5px;
     display: inline-block;
