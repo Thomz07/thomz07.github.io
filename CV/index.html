@@ -1,182 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-	<title>CV Thomas Laffay</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="osx_buttons.css">
-	<link rel="stylesheet" type="text/css" href="osbigsur_buttons.css">
-	<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Thomas Laffay</title>
+    <link rel="stylesheet" href="style.css"/>
+
 </head>
-<body onload="chrono(); chronoReset()">
+<body onload="">
+    <canvas id="myCanvas" width="800" height="600"></canvas> 
 
-	<div id="wallpaper">
-		<img id="wallpaper_image">
-	</div>
-	<div id="main_block">
-		<div id="barre_du_haut">
-			<div id="red_button" class="close_button"></div>
-			<div id="yellow_button" class="close_button"></div>
-			<div id="green_button" class="close_button"></div>
-			<div id="time"></div>
-		</div>
-		<div><img src="profile_picture.jpg" id="profile_picture" onclick="changePfp()"></div>
-		<div id="nom_prenom_block">
-			<a>Thomas Laffay</a><br>
-			<a>25/08/2003</a><br><br>
-			<a>06 52 07 22 17</a><br>
-			<a href="mailto:thom.laffay@gmail.com" id="email_adress">thom.laffay@gmail.com</a><br>
-			<a id="physical_adress">429 Chemin des Hauches de Tourton <br> 07430 Savas</a><br>
-		</div>
-		<div id="parcours_scolaire_block" class="text_blocks">
-			<a class="category_title">Formation</a><br><br>
-			<a class="normal_texte">2019-2020 : Terminale STI2D au Lycée Saint-Denis, Annonay, Bac mention Assez Bien</a><br><br>
-			<a class="normal_texte">2020-2021 : Première année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br><br>
-			<a class="normal_texte">2021-2022 : Deuxième année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br><br>
-			<a class="normal_texte">2022-2023 : Troisième année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br><br>
-			<a class="normal_texte">2018 : Formation aux premiers secours PSC1</a>
-		</div>
-		<div id="experiences_scolaire_block" class="text_blocks">
-			<a class="category_title">Projets</a><br><br>
-			<a class="normal_texte">2020 : Réalisation d'un guide de visite virtuel de la ville de Lyon de A à Z sur le thème du bon vivant</a><br><br>
-			<a class="normal_texte">2020 : Réalisation d'une station météo connectée from scratch</a><br><br>
-			<a class="normal_texte">2021 : Création complète d'une marque fictive par rapport à des contraintes (Diabébic, stylo permettant de se piquer contre le diabète en toute discrétion)</a><br><br><br>
-			<a class="normal_texte">2021 : Réalisation d'un guide de visite virtuel du <a href="https://www.univ-lyon2.fr/mumo" style="text-decoration: none;" class="normal_texte links" target="_blank"> &nbsp;musée des moulages à Lyon</a></a><br><br>
-			<a class="normal_texte">2022 : Création complète d'une marque fictive par rapport à des contraintes : YourPAD, la combinaison d'un terminal de paiement et d'un pad de commande. Prototypage, Business Model, Prévisions financières, Charte Graphique</a><br>
-		</div>
-		<div id="experience_extra_scolaires_block" class="text_blocks">
-			<a class="category_title">Expériences professionels</a><br><br>
-			<a class="normal_texte">2020-2021 : Développement de tweaks pour iPhone chez <a href="https://chariz.com" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Chariz</a><a class="normal_texte">&nbsp;et également</a><a href="https://packix.com" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Packix</a><a class="normal_texte">&nbsp;sous le pseudo thomz/thomz07</a></a><br><br>
-			<a class="normal_texte">2017 : Stage d'observation chez <a href="https://www.fanuc.eu/fr/fr" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;FANUC Robotics</a></a><br><br>
-			<a class="normal_texte">2021 : Stage ouvrier de 1 mois chez <a href="https://a7agencement.fr/" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;A7 Agencement</a></a><br><br>
-			<a class="normal_texte">2021 : Stage dans l'entreprise <a href="https://resnumerica.org/" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Resnumerica :</a><a class="normal_texte">Gestion des réseaux sociaux de Educatec Educatice, campagne de mailing, organisation du stand </a><a href="https://carrefourinnov.fr/" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;"Le Carrefour de l'innovation pédagogique"</a><a class="normal_texte">&nbsp; sur le salon Educatec/Educatice</a></a></a><br><br><br><br>
-			<a class="normal_texte">2022 : Job d'été en caisse à Carrefour Market, signature d'un CDI étudiant par la suite</a><br><br>
-			<a class="normal_texte">2022 : Création d'évènements avec l'association "Conscrits 2023 Boulieu Saint-Clair Savas", Soirée privée, Matinées (Comptabilité, Contact)</a><br>
-		</div>
-		<div id="competences_block" class="text_blocks">
-			<a class="category_title">Compétences</a><br><br>
-			<a class="normal_texte">Capacité à travailler en groupe comme à être autonome</a><br><br>
-			<a class="normal_texte">Capacité à s'adapter</a><br><br>
-			<a class="normal_texte">Maîtrise de l'anglais (niveau C1)</a><br><br>
-			<a class="normal_texte">Examen <a href="https://thomz07.github.io/CV/TOEIC.pdf" style="text-decoration: none;" class="normal_texte links" target="_blank"> &nbsp;TOEIC&nbsp; </a> avec 890/990</a><br><br>
-			<a class="normal_texte">SEO, SEA, Community management, Comptabilité</a><br><br>
-			<a class="normal_texte">Maitrise de différents langages de programmation :</a><br><br>
-			<button class="osbigsur"><img src="py.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Python_(langage)';"></button>
-			<button class="osbigsur"><img src="html5.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Hypertext_Markup_Language';"></button>
-			<button class="osbigsur"><img src="css3.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade';"></button>
-			<button class="osbigsur"><img src="objc.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Objective-C';"></button><br><br>
-			<a class="normal_texte">Maitrise de différents logiciels de travail :</a><br><br>
-			<button class="osbigsur"><img src="gdocs.png" width="30px" onclick="location.href='https://docs.google.com';"></button>
-			<button class="osbigsur"><img src="gslides.png" width="30px" onclick="location.href='https://slides.google.com';"></button>
-			<button class="osbigsur"><img src="gsheets.png" width="30px" onclick="location.href='https://sheets.google.com';"></button>
-			<button class="osbigsur"><img src="affinity.png" width="30px" onclick="location.href='https://affinity.serif.com/fr/photo/';"></button>
-		</div>
-		<div id="centre_dinterets_block" class="text_blocks">
-			<a class="category_title">Centre d'intérêts</a><br><br>
-			<a class="normal_texte">Informatique, développement, jeux vidéos, technologies, vin, spiritueux, automobile, évènementiel</a>
-		</div>	
-		<div id="contact_block" class="text_blocks">
-			<a class="category_title">Contact</a><br><br>
-			<button class="osbigsur" onclick="location.href='https://www.linkedin.com/in/laffay-thomas-336842102/';"><img src="linkedin.png" width="30px"></button>
-			<button class="osbigsur" onclick="location.href='https://github.com/thomz07';"><img src="github.png" width="30px"></button>
-			<button class="osbigsur" onclick="location.href='https://thomz07.github.io';"><img src="website.png" width="30px"></button>
-			<button class="osbigsur" onclick="location.href='https://thomz07.github.io/CV/CV.pdf';"><img src="download.png" width="30px"></button>
-		</div>
-	</div>
-
-	<script>
-		var app = document.getElementById('physical_adress'); 
-
-		var typewriter = new Typewriter(app, {
-			loop: true,
-			delay: 30,
-			deleteSpeed: 30,
-			cursorClassName: 'cursorSize'
-		});
-
-		typewriter.typeString(" ") 
-		.typeString('429 Chemin des Hauches de Tourton <br> 07430 Savas') 
-		.pauseFor(3000) 
-		.deleteChars(46) 
-		.typeString("21B Chemin de Charrière Blanche 69130 Ecully") 
-		.pauseFor(3000) 
-		.deleteChars(37) 
-		.start(); 
-
-		function getRandomInt(max) {
-			return Math.floor(Math.random() * max);
-		}
-		var images = ["https://512pixels.net/downloads/macos-wallpapers-thumbs/10-6-Server-thumb.jpg",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-7--thumb.png",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-9--thumb.jpg",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-10--thumb.jpg",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-11--thumb.jpg",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-12--thumb.jpg",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-13--thumb.jpg",
-		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-14-Day-Thumb.jpg"];
-		x = images[getRandomInt(images.length)];
-		document.getElementById("wallpaper_image").src = x;
-
-		var startTime = 0
-		var start = 0
-		var end = 0
-		var diff = 0
-		var timerID = 0
-
-		function chrono(){
-			end = new Date()
-			diff = end - start
-			diff = new Date(diff)
-			var msec = diff.getMilliseconds()
-			var sec = diff.getSeconds()
-			var min = diff.getMinutes()
-			var hr = diff.getHours()-1
-			if (min < 10){
-				min = "0" + min
-			}
-			if (sec < 10){
-				sec = "0" + sec
-			}
-			if(msec < 10){
-				msec = "00" +msec
-			}
-			else if(msec < 100){
-				msec = "0" +msec
-			}
-			document.getElementById("time").innerHTML = "CV Thomas Laffay - " + hr + ":" + min + ":" + sec 
-			timerID = setTimeout("chrono()", 10)
-		}
-		function chronoStart(){
-			document.chronoForm.startstop.value = "stop!"
-			document.chronoForm.startstop.onclick = chronoStop
-			document.chronoForm.reset.onclick = chronoReset
-			start = new Date()
-			chrono()
-		}
-
-		function chronoContinue(){
-			document.chronoForm.startstop.value = "stop!"
-			document.chronoForm.startstop.onclick = chronoStop
-			document.chronoForm.reset.onclick = chronoReset
-			start = new Date()-diff
-			start = new Date(start)
-			chrono()
-		}
-
-		function chronoReset(){
-			document.getElementById("time").innerHTML = "0:00:00:000"
-			start = new Date()
-		}
-
-		var click = 0
-		function changePfp(){
-			click = click + 1;
-			console.log(click)
-			if(click>10){
-				document.getElementById("profile_picture").src = "profile_picture2.png"
-			}
-		}
-	</script>
-
+    <div id="mainContainer">
+        <div id="infoContainer" class="container container-small">
+            <div class="navBar">
+                <div id="closeButton" class="navButton"></div>
+                <div id="reduceButton" class="navButton"></div>
+                <div id="expandButton" class="navButton"></div>
+            </div>
+            <div class="containerContent" id="info">
+                <div id="pictureNameContainer">
+                    <img id="picture" alt="Thomas Laffay photo" loading="lazy" src ="https://github.com/Thomz07/thomz07.github.io/blob/master/CV/profile_picture.png?raw=true"/>
+                    <p id="nomPrenom">Thomas Laffay</p>
+                    <p id="dateDeNaissance">25/08/2003</p>
+                </div>
+                <div id="formationScolaireCompetences">
+                    <p>06 52 07 22 17</p>
+                    <p>thom.laffay@gmail.com</p>
+                    <br><br>
+                    <p><strong>2019-2020</strong><br> Terminale STI2D au Lycée Saint-Denis, Annonay<br>Bac mention Assez Bien</p><br>
+                    <p><strong>2020-2023</strong><br> Bachelor "Chef de projet de la transition du numérique" <br>à l'Ecole LDLC, Limonest</p>
+                </div>
+            </div>
+        </div>
+        <div class="container container-big">
+            <div class="navBar">
+                <div id="closeButton" class="navButton"></div>
+                <div id="reduceButton" class="navButton"></div>
+                <div id="expandButton" class="navButton"></div>
+            </div>
+            <div class="containerContent" id="projets">
+                <p class="title">Projets scolaires</p>
+                <div id="projetsContainer">
+                    <ul>
+                        <ul>
+                            <li style="margin-left:15px;">Conception et création d'une station météo connectée accessible sur le web en utilisant la technologie Arduino</li>
+                            <li style="margin-left:15px;">Création d'une marque fictive "Diabébic", conception du business model, prévisions financières, etc...</li>
+                            <li style="margin-left:15px;">Création d'une marque fictive "YourPad" à partir de contraintes, conception du business model, prévisions financières, prototypage, charte graphique, image de marque, communication, etc...</li>
+                            <li style="margin-left:15px;">Conception et développement d'un guide virtuel en 360 de la ville de Lyon, mettant en avant des perles du terroir français pour les amateurs de bonnes choses, en utilisant le logiciel <a href="https://speedernet-sphere.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Speedernet Sphère</a></li>
+                            <li style="margin-left:15px;">Conception et développement d'un guide vitruel en 360 du <a href="https://www.univ-lyon2.fr/sciences-et-societe/mumo" target="_blank" rel="noopener noreferrer" style="text-decoration:none">musée des moulages de Lyon</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container container-big">
+            <div class="navBar">
+                <div id="closeButton" class="navButton"></div>
+                <div id="reduceButton" class="navButton"></div>
+                <div id="expandButton" class="navButton"></div>
+            </div>
+            <div class="containerContent" id="expPro">
+                <p class="title">Expériences professionnelles</p>
+                <div id="expProContainer">
+                    <ul>
+                        <ul>
+                            <li style="margin-left:15px;">Stage d'observation chez <a href="https://www.fanuc.eu/fr/fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">FANUC Robotics</a> en 2017</li>
+                            <li style="margin-left:15px;">Stage de 1 mois chez <a href="https://a7agencement.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">A7 Agencement</a> en 2021, maintien du site web, création et gestion des réseaux sociaux</li>
+                            <li style="margin-left:15px;">Stage de 4 mois chez <a href="https://resnumerica.org" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Resnumerica</a> en 2021, gestion des réseaux sociaux, organisation du salon Educatec Educatice, rédaction d'article</li>
+                            <li style="margin-left:15px;">Contrat étudiant de 10h par week-end chez <a href="https://www.carrefour.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Carrefour</a> Market Davézieux depuis août 2022, caisse et mise en rayon</li>
+                            <li style="margin-left:15px;">Création d'évènements avec l'association <a href="https://www.facebook.com/conscrits.boulieu.1" target="_blank" rel="noopener noreferrer" style="text-decoration:none">"Conscrits 2023 Boulieu Saint-Clair Savas"</a>, Soirées privées et matinées</li>
+                            <li style="margin-left:15px;">Développement et vente de tweaks pour <a href="https://fr.wikipedia.org/wiki/Débridage_d%27iOS" target="_blank" rel="noopener noreferrer" style="text-decoration:none">iPhone jailbreakés</a> sous iOS 13-15 sur des platformes comme <a href="https://chariz.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Chariz</a> et <a href="https://repo.packix.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Packix</a></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container container-small">
+            <div class="navBar">
+                <div id="closeButton" class="navButton"></div>
+                <div id="reduceButton" class="navButton"></div>
+                <div id="expandButton" class="navButton"></div>
+            </div>
+            <div class="containerContent" id="outils">
+                <div id="container-circle">
+                    <div class="circle">
+                        <img src="img/affinity.png" class="square" onclick="showText('affinity','Text')">
+                        <img src="img/python.png" class="square" onclick="showText('python','Text')">
+                        <img src="img/uipath.png" class="square" onclick="showText('uipath','Text')">
+                        <img src="img/robocorp.png" class="square" onclick="showText('robocorp','Text')">
+                        <img src="img/objc.png" class="square" onclick="showText('objc','Text')">
+                        <img src="img/html-css-js-light.png" class="square" id="html-css-js-img" onclick="showText('html','Text')">
+                        <img src="img/gsuite-light.png" class="square" id="gsuite-img" onclick="showText('gsuite','Text')">
+                    </div>
+                </div>
+                <div id="container-circle-info">
+                    <p id="Text"><strong>Cliquez sur une icône !</strong></p>
+                </div>
+            </div>
+            <script src="circle.js"></script>
+        </div>
+        <div class="container container-small">
+            <div class="navBar">
+                <div id="closeButton" class="navButton"></div>
+                <div id="reduceButton" class="navButton"></div>
+                <div id="expandButton" class="navButton"></div>
+            </div>
+            <div class="containerContent" id="expPro">
+                <p class="title">Compétences</p>
+                <div id="expProContainer">
+                    <ul>
+                        <ul>
+                            <li style="margin-left:15px;">Capacité à travailler efficacement en équipe et en autonomie</li>
+                            <li style="margin-left:15px;">Adaptabilité face aux contraintes et changements</li>
+                            <li style="margin-left:15px;">Gestion du stress et efficacité dans les situations urgentes</li>
+                            <li style="margin-left:15px;">Maîtrise de l'anglais (niveau C1)</li>
+                            <li style="margin-left:15px;">Score de 890/990 au test <a href="https://thomz07.github.io/CV/TOEIC.pdf" target="_blank" rel="noopener noreferrer" style="text-decoration:none">TOEIC</a></li>
+                            <li style="margin-left:15px;">Excellentes compétences en communication écrite et orale</li>
+                            <li style="margin-left:15px;">Flexibilité et polyvalence dans différents environnements de travail</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container container-big" id="tweaks-parent">
+            <div class="navBar">
+                <div id="closeButton" class="navButton"></div>
+                <div id="reduceButton" class="navButton"></div>
+                <div id="expandButton" class="navButton"></div>
+            </div>
+            <div class="container-content" id="tweaks">
+                <div id="tweaks-icons-container">
+                    <img src="img/multipla@3x.png" class="tweak-icons tweaks-selected tweak-icons-hover-selected" id="multipla" onclick="showTweakText('multipla','tweak-description-title', 'tweak-description')">
+                    <img src="img/cenamo@3x.png" class="tweak-icons tweak-icons-hover-not-selected" id="cenamo" onclick="showTweakText('cenamo','tweak-description-title', 'tweak-description')">
+                    <img src="img/folded-icon.png" class="tweak-icons tweak-icons-hover-not-selected" id="folded" onclick="showTweakText('folded','tweak-description-title', 'tweak-description')">
+                </div>
+                <div id="tweaks-icons-description">
+                    <br>
+                    <p id="tweak-description-title"><strong><a href='https://chariz.com/buy/multipla' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Multipla</a></strong> - power to your dock</p>
+                    <br>
+                    <p id="tweak-description">Multipla est un tweak pour iPhones jailbreakés qui améliore le dock standard en y ajoutant des widgets.<br>Parmi les fonctionnalités, on retrouve divers widgets (musique, météo, batterie, etc.), la personnalisation du dock, l’activation du dock flottant et une API pour intégrer ses propres widgets.</p>
+                    <div id="tweak-screenshots-with-buttons">
+                        <button id="prev-button"><img id="previous-button-img" src="img/previous-arrow-light.png" width="25px"></button>
+                        <div id="tweak-screenshots-container">
+                            <div id="tweak-screenshots">
+                                <img src="img/multipla-2.0-1.jpg" id="screenshot1" class="screenshots"/>
+                                <img src="img/multipla-2.0-2.jpg" id="screenshot2" class="screenshots"/>
+                                <img src="img/multipla-2.0-3.jpg" id="screenshot3" class="screenshots"/>
+                                <img src="img/multipla-2.0-4.jpg" id="screenshot4" class="screenshots"/>
+                                <img src="img/multipla-2.0-5.jpg" id="screenshot5" class="screenshots"/>
+                                <img src="img/multipla-2.0-6.jpg" id="screenshot6" class="screenshots"/>
+                            </div>
+                        </div>
+                        <button id="next-button"><img id="next-button-img" src="img/next-arrow-light.png" width="25px"></button>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="carrousel.js"></script>
+            <script src="tweaks.js"></script>
+        </div>
+    </div> 
+ 
+    </script>
 </body>
 </html>

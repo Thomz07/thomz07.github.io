@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CV Thomas Laffay</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="osx_buttons.css">
+	<link rel="stylesheet" type="text/css" href="osbigsur_buttons.css">
+	<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+</head>
+<body onload="chrono(); chronoReset()">
+
+	<div id="wallpaper">
+		<img id="wallpaper_image">
+	</div>
+	<div id="main_block">
+		<div id="barre_du_haut">
+			<div id="red_button" class="close_button"></div>
+			<div id="yellow_button" class="close_button"></div>
+			<div id="green_button" class="close_button"></div>
+			<div id="time"></div>
+		</div>
+		<div><img src="profile_picture.jpg" id="profile_picture" onclick="changePfp()"></div>
+		<div id="nom_prenom_block">
+			<a>Thomas Laffay</a><br>
+			<a>25/08/2003</a><br><br>
+			<a>06 52 07 22 17</a><br>
+			<a href="mailto:thom.laffay@gmail.com" id="email_adress">thom.laffay@gmail.com</a><br>
+			<a id="physical_adress">429 Chemin des Hauches de Tourton <br> 07430 Savas</a><br>
+		</div>
+		<div id="parcours_scolaire_block" class="text_blocks">
+			<a class="category_title">Formation</a><br><br>
+			<a class="normal_texte">2019-2020 : Terminale STI2D au Lycée Saint-Denis, Annonay, Bac mention Assez Bien</a><br><br>
+			<a class="normal_texte">2020-2021 : Première année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br><br>
+			<a class="normal_texte">2021-2022 : Deuxième année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br><br>
+			<a class="normal_texte">2022-2023 : Troisième année de Bachelor métiers du numérique à L'Ecole LDLC, Limonest</a><br><br>
+			<a class="normal_texte">2018 : Formation aux premiers secours PSC1</a>
+		</div>
+		<div id="experiences_scolaire_block" class="text_blocks">
+			<a class="category_title">Projets</a><br><br>
+			<a class="normal_texte">2020 : Réalisation d'un guide de visite virtuel de la ville de Lyon de A à Z sur le thème du bon vivant</a><br><br>
+			<a class="normal_texte">2020 : Réalisation d'une station météo connectée from scratch</a><br><br>
+			<a class="normal_texte">2021 : Création complète d'une marque fictive par rapport à des contraintes (Diabébic, stylo permettant de se piquer contre le diabète en toute discrétion)</a><br><br><br>
+			<a class="normal_texte">2021 : Réalisation d'un guide de visite virtuel du <a href="https://www.univ-lyon2.fr/mumo" style="text-decoration: none;" class="normal_texte links" target="_blank"> &nbsp;musée des moulages à Lyon</a></a><br><br>
+			<a class="normal_texte">2022 : Création complète d'une marque fictive par rapport à des contraintes : YourPAD, la combinaison d'un terminal de paiement et d'un pad de commande. Prototypage, Business Model, Prévisions financières, Charte Graphique</a><br>
+		</div>
+		<div id="experience_extra_scolaires_block" class="text_blocks">
+			<a class="category_title">Expériences professionels</a><br><br>
+			<a class="normal_texte">2020-2021 : Développement de tweaks pour iPhone chez <a href="https://chariz.com" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Chariz</a><a class="normal_texte">&nbsp;et également</a><a href="https://packix.com" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Packix</a><a class="normal_texte">&nbsp;sous le pseudo thomz/thomz07</a></a><br><br>
+			<a class="normal_texte">2017 : Stage d'observation chez <a href="https://www.fanuc.eu/fr/fr" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;FANUC Robotics</a></a><br><br>
+			<a class="normal_texte">2021 : Stage ouvrier de 1 mois chez <a href="https://a7agencement.fr/" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;A7 Agencement</a></a><br><br>
+			<a class="normal_texte">2021 : Stage dans l'entreprise <a href="https://resnumerica.org/" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;Resnumerica :</a><a class="normal_texte">Gestion des réseaux sociaux de Educatec Educatice, campagne de mailing, organisation du stand </a><a href="https://carrefourinnov.fr/" style="text-decoration: none;" class="normal_texte links" target="_blank">&nbsp;"Le Carrefour de l'innovation pédagogique"</a><a class="normal_texte">&nbsp; sur le salon Educatec/Educatice</a></a></a><br><br><br><br>
+			<a class="normal_texte">2022 : Job d'été en caisse à Carrefour Market, signature d'un CDI étudiant par la suite</a><br><br>
+			<a class="normal_texte">2022 : Création d'évènements avec l'association "Conscrits 2023 Boulieu Saint-Clair Savas", Soirée privée, Matinées (Comptabilité, Contact)</a><br>
+		</div>
+		<div id="competences_block" class="text_blocks">
+			<a class="category_title">Compétences</a><br><br>
+			<a class="normal_texte">Capacité à travailler en groupe comme à être autonome</a><br><br>
+			<a class="normal_texte">Capacité à s'adapter</a><br><br>
+			<a class="normal_texte">Maîtrise de l'anglais (niveau C1)</a><br><br>
+			<a class="normal_texte">Examen <a href="https://thomz07.github.io/CV/TOEIC.pdf" style="text-decoration: none;" class="normal_texte links" target="_blank"> &nbsp;TOEIC&nbsp; </a> avec 890/990</a><br><br>
+			<a class="normal_texte">SEO, SEA, Community management, Comptabilité</a><br><br>
+			<a class="normal_texte">Maitrise de différents langages de programmation :</a><br><br>
+			<button class="osbigsur"><img src="py.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Python_(langage)';"></button>
+			<button class="osbigsur"><img src="html5.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Hypertext_Markup_Language';"></button>
+			<button class="osbigsur"><img src="css3.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade';"></button>
+			<button class="osbigsur"><img src="objc.png" width="30px" onclick="location.href='https://fr.wikipedia.org/wiki/Objective-C';"></button><br><br>
+			<a class="normal_texte">Maitrise de différents logiciels de travail :</a><br><br>
+			<button class="osbigsur"><img src="gdocs.png" width="30px" onclick="location.href='https://docs.google.com';"></button>
+			<button class="osbigsur"><img src="gslides.png" width="30px" onclick="location.href='https://slides.google.com';"></button>
+			<button class="osbigsur"><img src="gsheets.png" width="30px" onclick="location.href='https://sheets.google.com';"></button>
+			<button class="osbigsur"><img src="affinity.png" width="30px" onclick="location.href='https://affinity.serif.com/fr/photo/';"></button>
+		</div>
+		<div id="centre_dinterets_block" class="text_blocks">
+			<a class="category_title">Centre d'intérêts</a><br><br>
+			<a class="normal_texte">Informatique, développement, jeux vidéos, technologies, vin, spiritueux, automobile, évènementiel</a>
+		</div>	
+		<div id="contact_block" class="text_blocks">
+			<a class="category_title">Contact</a><br><br>
+			<button class="osbigsur" onclick="location.href='https://www.linkedin.com/in/laffay-thomas-336842102/';"><img src="linkedin.png" width="30px"></button>
+			<button class="osbigsur" onclick="location.href='https://github.com/thomz07';"><img src="github.png" width="30px"></button>
+			<button class="osbigsur" onclick="location.href='https://thomz07.github.io';"><img src="website.png" width="30px"></button>
+			<button class="osbigsur" onclick="location.href='https://thomz07.github.io/CV/CV.pdf';"><img src="download.png" width="30px"></button>
+		</div>
+	</div>
+
+	<script>
+		var app = document.getElementById('physical_adress'); 
+
+		var typewriter = new Typewriter(app, {
+			loop: true,
+			delay: 30,
+			deleteSpeed: 30,
+			cursorClassName: 'cursorSize'
+		});
+
+		typewriter.typeString(" ") 
+		.typeString('429 Chemin des Hauches de Tourton <br> 07430 Savas') 
+		.pauseFor(3000) 
+		.deleteChars(46) 
+		.typeString("21B Chemin de Charrière Blanche 69130 Ecully") 
+		.pauseFor(3000) 
+		.deleteChars(37) 
+		.start(); 
+
+		function getRandomInt(max) {
+			return Math.floor(Math.random() * max);
+		}
+		var images = ["https://512pixels.net/downloads/macos-wallpapers-thumbs/10-6-Server-thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-7--thumb.png",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-9--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-10--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-11--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-12--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-13--thumb.jpg",
+		"https://512pixels.net/downloads/macos-wallpapers-thumbs/10-14-Day-Thumb.jpg"];
+		x = images[getRandomInt(images.length)];
+		document.getElementById("wallpaper_image").src = x;
+
+		var startTime = 0
+		var start = 0
+		var end = 0
+		var diff = 0
+		var timerID = 0
+
+		function chrono(){
+			end = new Date()
+			diff = end - start
+			diff = new Date(diff)
+			var msec = diff.getMilliseconds()
+			var sec = diff.getSeconds()
+			var min = diff.getMinutes()
+			var hr = diff.getHours()-1
+			if (min < 10){
+				min = "0" + min
+			}
+			if (sec < 10){
+				sec = "0" + sec
+			}
+			if(msec < 10){
+				msec = "00" +msec
+			}
+			else if(msec < 100){
+				msec = "0" +msec
+			}
+			document.getElementById("time").innerHTML = "CV Thomas Laffay - " + hr + ":" + min + ":" + sec 
+			timerID = setTimeout("chrono()", 10)
+		}
+		function chronoStart(){
+			document.chronoForm.startstop.value = "stop!"
+			document.chronoForm.startstop.onclick = chronoStop
+			document.chronoForm.reset.onclick = chronoReset
+			start = new Date()
+			chrono()
+		}
+
+		function chronoContinue(){
+			document.chronoForm.startstop.value = "stop!"
+			document.chronoForm.startstop.onclick = chronoStop
+			document.chronoForm.reset.onclick = chronoReset
+			start = new Date()-diff
+			start = new Date(start)
+			chrono()
+		}
+
+		function chronoReset(){
+			document.getElementById("time").innerHTML = "0:00:00:000"
+			start = new Date()
+		}
+
+		var click = 0
+		function changePfp(){
+			click = click + 1;
+			console.log(click)
+			if(click>10){
+				document.getElementById("profile_picture").src = "profile_picture2.png"
+			}
+		}
+	</script>
+
+</body>
+</html>
