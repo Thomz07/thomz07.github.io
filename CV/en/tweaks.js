@@ -5,7 +5,7 @@ function showTweakText(outil, tweakname_div, tweak_description) {
     const cenamo = "<strong><a href='https://chariz.com/get/cenamo' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Cenamo</a></strong> - battery right on your dock"
     const folded = "<strong><a href='https://repo.packix.com/package/xyz.burritoz.thomz.folded' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Folded</a></strong> - folders, your way"
 
-    const multipla_description = "Multipla is a tweak for jailbroken iPhones that enhance the dock by adding widgets to it.<br>Among the features, we find various widgets (music, weather, battery, etc.), dock customization, floating dock activation and an API to integrate your own widgets."
+    const multipla_description = "Multipla is a tweak for jailbroken iPhones that enhances the dock by adding widgets to it.<br>Among the features, we find various widgets (music, weather, battery, etc.), dock customization, floating dock activation and an API to integrate your own widgets."
     const cenamo_description = "Cenamo is a tweak that allows you to display the battery directly on the dock of your iOS device. It offers two modes: battery level and battery status. Cenamo is compatible with most dock tweaks. Among the customization options, it includes adjusting transparency and customizing colors."
     const folded_description = "Folded is a tweak that allows you to customize your folders on iOS with a multitude of options and features. You can customize the layout of folders, the size and position of frames, folder icons, color and appearance, etc. Folded also offers options to share and import/export folder configurations via a unique string containing your settings."
 
