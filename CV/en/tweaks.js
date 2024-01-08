@@ -62,7 +62,7 @@ function showTweakText(outil, tweakname_div, tweak_description) {
         selectedSquare.classList.remove("tweaks-selected");
         selectedSquare.classList.add("tweak-icons-hover-not-selected");
         selectedSquare.classList.remove("tweak-icons-hover-selected");
-        document.getElementById(tweakname_div).innerHTML = "<strong>Cliquez sur une icône de tweak !</strong>";
+        document.getElementById(tweakname_div).innerHTML = "<strong>Click on a tweak icon !</strong>";
         document.getElementById(tweak_description).innerHTML = "...";
         document.querySelector('[id="screenshot1"]').style.display = "none";
         document.querySelector('[id="screenshot2"]').style.display = "none";
