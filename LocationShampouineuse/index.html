@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation de Shampouineuse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<body>
+    <div id="title">
+        <img id="logo" src="logo.png"/>
+        <h1><div id="SHAMPOUINEUSE">SHAMPOUINEUSE</div> A louer <br> 07340 Félines</h1>
+        <p><strong>20€</strong> la journée</p>
+        <p>7j/7 - de 18h à 18h</p>
+        <p><strong>1 dosette</strong> fournie gratuitement <br> (1 dosette = 1 voiture)</p>
+        <p><strong>3€</strong> la dosette supplémentaire</p>
+        <p><strong>Shampouineuse professionelle</strong>, idéale pour nettoyer vos canapés, voitures, matelas, tapis et autres</p>
+    </div>
+    <form id="reservation-form">
+
+        <p></p>
+        
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Téléphone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="date">Date de location:</label>
+        <input type="date" id="date" name="date" required>
+        
+        <button type="submit" class="btn animatedButton">Réserver</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
