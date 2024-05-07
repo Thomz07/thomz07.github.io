@@ -50,17 +50,18 @@ label {
     position: relative;
 }
 
+/* Styles généraux pour les boutons */
 .btn {
     box-sizing: border-box;
-    -webkit-appearance: none;
-       -moz-appearance: none;
+    -webkit-appearance: none; /* Safari */
+       -moz-appearance: none; /* Firefox */
             appearance: none;
     background-color: transparent;
     border: 2px solid;
     border-radius: 4px;
     cursor: pointer;
-    -webkit-align-self: center;
-        -ms-flex-item-align: center;
+    -webkit-align-self: center; /* Safari */
+        -ms-flex-item-align: center; /* IE */
             align-self: center;
     font-size: 1rem;
     line-height: 1;
@@ -71,51 +72,66 @@ label {
     color: white;
 }
 
+/* Styles spécifiques pour le bouton "Atlas" */
 .button--atlas > span {
-	display: inline-block;
+    display: inline-block;
 }
 
 .button--atlas:hover > span {
-	opacity: 0;
+    opacity: 0;
 }
 
+/* Conteneur pour le texte déroulant */
 .marquee {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	overflow: hidden;
-	pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
 }
 
+/* Animation pour le texte déroulant */
 .marquee__inner {
-	width: fit-content;
-	display: flex;
-	position: relative;
-	--offset: 1rem;
-	--move-initial: calc(-0% + var(--offset));
-	--move-final: calc(-20% + var(--offset));
-	transform: translate3d(var(--move-initial), 0, 0);
-	animation: marquee 1s linear infinite;
-	animation-play-state: running;
-	opacity: 1;
+    width: fit-content;
+    display: flex;
+    position: relative;
+    --offset: 1rem;
+    --move-initial: calc(-0% + var(--offset));
+    --move-final: calc(-20% + var(--offset));
+    -webkit-transform: translate3d(var(--move-initial), 0, 0); /* Safari */
+    transform: translate3d(var(--move-initial), 0, 0);
+    -webkit-animation: marquee 1s linear infinite; /* Safari */
+    animation: marquee 1s linear infinite;
+    -webkit-animation-play-state: running; /* Safari */
+    animation-play-state: running;
+    opacity: 1;
 }
 
 .marquee span {
-	text-align: center;
-	white-space: nowrap;
-	font-style: italic;
-	padding: 1rem 0.5rem;
+    text-align: center;
+    white-space: nowrap;
+    font-style: italic;
+    padding: 1rem 0.5rem;
+}
+
+/* Animation Keyframes avec préfixes */
+@-webkit-keyframes marquee { /* Safari */
+    0% {
+        -webkit-transform: translate3d(var(--move-initial), 0, 0); /* Safari */
+    }
+    100% {
+        -webkit-transform: translate3d(var(--move-final), 0, 0); /* Safari */
+    }
 }
 
 @keyframes marquee {
-	0% {
-		transform: translate3d(var(--move-initial), 0, 0);
-	}
-
-	100% {
-		transform: translate3d(var(--move-final), 0, 0);
-	}
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
 }
 
 .content__item {
