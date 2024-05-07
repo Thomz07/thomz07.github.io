@@ -13,14 +13,15 @@
         <h1><div id="SHAMPOUINEUSE">SHAMPOUINEUSE</div> A louer <br> 07340 Félines</h1>
         <p><strong>20€</strong> la journée</p>
         <p>7j/7 - de 18h à 18h</p>
-        <p><strong>1 dosette</strong> fournie gratuitement <br> (1 dosette = 1 voiture)</p>
+        <p><strong>1 dosette</strong> fournie gratuitement<br><a style="font-size: 12px;">(1 dosette = 1 voiture)</a></p>
         <p><strong>3€</strong> la dosette supplémentaire</p>
         <p><strong>Shampouineuse professionelle</strong>, idéale pour nettoyer vos canapés, voitures, matelas, tapis et autres</p>
     </div>
     <form id="reservation-form">
 
-        <p>Réservez votre journée de location grâce au formulaire ci-dessous et vous serez recontacté dans les plus brefs délais pour confirmer votre location</p>
-        
+        <p>Réservez votre journée de location grâce au formulaire ci-dessous et vous serez recontacté dans les plus brefs délais pour confirmer cette dernière</p>
+        <p>Vous devrez vous munir d'un chèque de caution d'une valeur de XX€</p>
+
         <label for="nom">Nom prénom</label>
         <input type="text" id="nom" name="nom" required>
         
@@ -33,8 +34,22 @@
         <label for="date">Date de location:</label>
         <input type="text" id="date" name="date" placeholder="jj/mm/aaaa" required data-error-message="La date doit être au format jj/mm/aaaa">
         
-        <div id="error-message" style="color: red; display: none;"></div>
-        <button type="submit" class="btn animatedButton">Réserver</button>
+        <div id="error-message" style="color: red; display: none; margin-bottom: 10px;"></div>
+
+        <li class="content__item">
+            <button type="submit" class="button button--atlas btn">
+                
+                <div class="marquee" aria-hidden="true">
+                    <div class="marquee__inner">
+                        <span>Réserver</span>
+                        <span>Réserver</span>
+                        <span>Réserver</span>
+                        <span>Réserver</span>
+                        <span>Réserver</span>
+                    </div>
+                </div>
+            </button>
+        </li>
     </form>
 
     <script src="script.js"></script>

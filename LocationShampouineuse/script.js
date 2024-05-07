@@ -28,3 +28,38 @@ function submit(){
     var date = document.getElementById('date').value;
     alert('Merci, ' + nom + '! Votre réservation pour le ' + date + ' a bien été enregistrée.');
 }
+
+function applyRandomColors() {
+    // Palette de couleurs prédéfinies
+    var colors = ["#ef476f", "#ffd166", "#06d6a0", "#118ab2"];
+
+    // Fonction pour obtenir une couleur aléatoire
+    function getRandomColor() {
+        var randomIndex = Math.floor(Math.random() * colors.length);
+        return colors[randomIndex];
+    }
+
+    var couleurGlobale = getRandomColor();
+
+    // Appliquer une couleur aléatoire au texte "SHAMPOUINEUSE"
+    var shampouineuseElement = document.getElementById("SHAMPOUINEUSE");
+    if (shampouineuseElement) {
+        shampouineuseElement.style.color = couleurGlobale;
+    }
+
+    // Sélectionner tous les éléments boutons
+    var btnElements = document.querySelectorAll('.btn, .animatedButton');
+
+    // Appliquer des couleurs aléatoires aux boutons
+    btnElements.forEach(function(btn) {
+    
+        btn.style.borderColor = couleurGlobale;
+        btn.style.color = couleurGlobale;
+    
+    });
+}
+
+// Appelle la fonction une fois le contenu chargé
+document.addEventListener("DOMContentLoaded", applyRandomColors);
+
+
