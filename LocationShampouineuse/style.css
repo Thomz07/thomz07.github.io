@@ -3,6 +3,10 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -35,7 +39,7 @@ label {
 
 #title {
     width: 100%;
-
+    /*background-color: red;*/
     max-width: 300px;
     padding: 20px;
     text-align:center;
