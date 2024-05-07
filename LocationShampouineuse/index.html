@@ -21,18 +21,19 @@
 
         <p>Réservez votre journée de location grâce au formulaire ci-dessous et vous serez recontacté dans les plus brefs délais pour confirmer votre location</p>
         
-        <label for="nom">Nom prénom:</label>
+        <label for="nom">Nom prénom</label>
         <input type="text" id="nom" name="nom" required>
         
         <!--<label for="email">Email:</label>
         <input type="email" id="email" name="email">-->
 
-        <label for="phone">Téléphone:</label>
-        <input type="tel" id="phone" name="phone" required>
+        <label for="number">Téléphone</label>
+        <input type="tel" id="number" name="number" required data-error-message="Le numéro n'est pas valide">
         
         <label for="date">Date de location:</label>
-        <input type="date" id="date" name="date" required>
+        <input type="text" id="date" name="date" placeholder="jj/mm/aaaa" required data-error-message="La date doit être au format jj/mm/aaaa">
         
+        <div id="error-message" style="color: red; display: none;"></div>
         <button type="submit" class="btn animatedButton">Réserver</button>
     </form>
 
