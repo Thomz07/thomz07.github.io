@@ -54,7 +54,7 @@ function applyRandomColors() {
     btnElements.forEach(function(btn) {
     
         btn.style.borderColor = couleurGlobale;
-        btn.style.color = couleurGlobale;
+        btn.style.backgroundColor = couleurGlobale;
     
     });
 }
