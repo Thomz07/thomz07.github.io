@@ -16,31 +16,29 @@
         <p><strong>1 dosette</strong> fournie gratuitement<br><a style="font-size: 12px;">(1 dosette = 1 voiture)</a></p>
         <p><strong>3€</strong> la dosette supplémentaire</p>
         <p><strong>Shampouineuse professionelle</strong>, idéale pour nettoyer vos canapés, voitures, matelas, tapis et autres</p>
+        <p><a id="howtouse" href="howtouse.html">Guide d'utilisation</a></p>
     </div>
     <form id="reservation-form">
 
-        <p>Réservez votre journée de location grâce au formulaire ci-dessous et vous serez recontacté dans les plus brefs délais pour confirmer cette dernière</p>
-        <p>Vous devrez vous munir d'un chèque de caution d'une valeur de XX€</p>
+        <p>Réservez votre journée de location grâce au formulaire ci-dessous et vous serez recontacté dans les plus brefs délais pour la confirmer.</p>
+        <p>Vous devrez vous munir d'un chèque de caution d'une valeur de XX€.</p>
+        <p>Pour plus d'informations, veuillez me contacter au <a id="phoneNumber" href="tel:0783931281">07 83 93 12 81</a></p>
 
         <label for="nom">Nom prénom</label>
         <input type="text" id="nom" name="nom" required>
-        
-        <!--<label for="email">Email:</label>
-        <input type="email" id="email" name="email">-->
 
         <label for="number">Téléphone</label>
         <input type="tel" id="number" name="number" required data-error-message="Le numéro n'est pas valide">
         
-        <label for="date">Date de location:</label>
+        <label for="date">Date de location souhaitée</label>
         <input type="text" id="date" name="date" placeholder="jj/mm/aaaa" required data-error-message="La date doit être au format jj/mm/aaaa">
         
         <div id="error-message" style="color: red; display: none; margin-bottom: 10px;"></div>
 
         <li class="content__item">
             <button type="submit" class="button button--atlas btn">
-                
                 <div class="marquee" aria-hidden="true">
-                    <div class="marquee__inner">
+                    <div id="boutonRéservation" class="marquee__inner">
                         <span>Réserver</span>
                         <span>Réserver</span>
                         <span>Réserver</span>

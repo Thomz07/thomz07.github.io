@@ -16,8 +16,8 @@ document.getElementById('reservation-form').addEventListener('submit', function(
         errorMessage.style.display = 'block';
     } else {
         errorMessage.style.display = 'none';
+        document.getElementById("boutonRéservation").style.opacity = 0.3;
         submitForm();
-        // Ajoute ici la logique pour traiter le formulaire, envoyer les données au serveur, etc.
     }
 });
 
@@ -26,7 +26,7 @@ function submitForm(){
     var date = document.getElementById('date').value;
     var phone = document.getElementById('number').value;
 
-    var googleScriptURL = "https://script.google.com/macros/s/AKfycbzj3IbMDjOIKBpFgLQcu1j77X8VwTaWKmVN-1QAw8Gd42yj5NIfql0RxWdLopuLGVt6xw/exec";
+    var googleScriptURL = "https://script.google.com/macros/s/AKfycbxF9v-wX1vLj3LD0hheCQpXjnmMvSfWW5IAxxFftIVKm7LGhh1wEE97i8NeaUYs3OhJlw/exec";
 
     fetch(googleScriptURL, {
         method: 'POST',
@@ -35,12 +35,19 @@ function submitForm(){
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({date: date, name: nom, phone: phone}).toString(),
-    }).then(() => {
-        alert('Merci, ' + nom + '! Votre réservation pour le ' + date + ' a bien été enregistrée.');
-        document.location.href = "remerciements.html"
-    }).catch(() => {
-        alert('Erreur lors de l\'enregistrement des données');
-    });
+    }).then(response => response.text())
+      .then((responseText) => {
+        alert(responseText); // fix car c'est vide
+          if (responseText === "DateAlreadyBooked") {
+              alert('Cette date est déjà réservée. Veuillez choisir une autre date.');
+          } else {
+              alert('Merci, ' + nom + '! Votre réservation pour le ' + date + ' a bien été enregistrée.');
+              document.location.href = "remerciements.html";
+          }
+      }).catch(() => {
+          alert('Erreur lors de l\'enregistrement des données');
+      });
+        
 }
 
 function applyRandomColors() {
@@ -57,6 +64,18 @@ function applyRandomColors() {
     var shampouineuseElement = document.getElementById("SHAMPOUINEUSE");
     if (shampouineuseElement) {
         shampouineuseElement.style.color = couleurGlobale;
+    }
+
+    var phoneNumber = document.getElementById("phoneNumber");
+    if (phoneNumber) {
+        phoneNumber.style.color = couleurGlobale;
+        phoneNumber.style.textDecoration = "none";
+    }
+
+    var howtouse = document.getElementById("howtouse");
+    if (howtouse) {
+        howtouse.style.color = couleurGlobale;
+        howtouse.style.textDecoration = "none";
     }
 
     var btnElements = document.querySelectorAll('.btn, .animatedButton');

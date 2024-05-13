@@ -50,18 +50,17 @@ label {
     position: relative;
 }
 
-/* Styles généraux pour les boutons */
 .btn {
     box-sizing: border-box;
-    -webkit-appearance: none; /* Safari */
-       -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none;
+       -moz-appearance: none;
             appearance: none;
     background-color: transparent;
     border: 2px solid;
     border-radius: 4px;
     cursor: pointer;
-    -webkit-align-self: center; /* Safari */
-        -ms-flex-item-align: center; /* IE */
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
             align-self: center;
     font-size: 1rem;
     line-height: 1;
@@ -81,7 +80,6 @@ label {
     opacity: 0;
 }
 
-/* Conteneur pour le texte déroulant */
 .marquee {
     position: absolute;
     top: 0;
@@ -91,7 +89,6 @@ label {
     pointer-events: none;
 }
 
-/* Animation pour le texte déroulant */
 .marquee__inner {
     width: fit-content;
     display: flex;
@@ -99,11 +96,11 @@ label {
     --offset: 1rem;
     --move-initial: calc(-0% + var(--offset));
     --move-final: calc(-20% + var(--offset));
-    -webkit-transform: translate3d(var(--move-initial), 0, 0); /* Safari */
+    -webkit-transform: translate3d(var(--move-initial), 0, 0);
     transform: translate3d(var(--move-initial), 0, 0);
     -webkit-animation: marquee 1s linear infinite; /* Safari */
     animation: marquee 1s linear infinite;
-    -webkit-animation-play-state: running; /* Safari */
+    -webkit-animation-play-state: running;
     animation-play-state: running;
     opacity: 1;
 }
@@ -115,13 +112,12 @@ label {
     padding: 1rem 0.5rem;
 }
 
-/* Animation Keyframes avec préfixes */
-@-webkit-keyframes marquee { /* Safari */
+@-webkit-keyframes marquee {
     0% {
-        -webkit-transform: translate3d(var(--move-initial), 0, 0); /* Safari */
+        -webkit-transform: translate3d(var(--move-initial), 0, 0);
     }
     100% {
-        -webkit-transform: translate3d(var(--move-final), 0, 0); /* Safari */
+        -webkit-transform: translate3d(var(--move-final), 0, 0);
     }
 }
 
