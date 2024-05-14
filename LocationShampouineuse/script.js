@@ -26,26 +26,26 @@ function submitForm(){
     var date = document.getElementById('date').value;
     var phone = document.getElementById('number').value;
 
-    var googleScriptURL = "https://script.google.com/macros/s/AKfycbxF9v-wX1vLj3LD0hheCQpXjnmMvSfWW5IAxxFftIVKm7LGhh1wEE97i8NeaUYs3OhJlw/exec";
+    var googleScriptURL = "https://script.google.com/macros/s/AKfycbwCgvYp1dDk5lllwVK1Zt4IR0xDbSxrgN7DvVSlfAhOs2OIfZZMBOB0FnGZsQqOtfYCxg/exec";
 
     fetch(googleScriptURL, {
         method: 'POST',
-        mode: 'no-cors', 
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({date: date, name: nom, phone: phone}).toString(),
     }).then(response => response.text())
       .then((responseText) => {
-        alert(responseText); // fix car c'est vide
           if (responseText === "DateAlreadyBooked") {
               alert('Cette date est déjà réservée. Veuillez choisir une autre date.');
+              document.getElementById("boutonRéservation").style.opacity = 1;
           } else {
               alert('Merci, ' + nom + '! Votre réservation pour le ' + date + ' a bien été enregistrée.');
               document.location.href = "remerciements.html";
           }
       }).catch(() => {
           alert('Erreur lors de l\'enregistrement des données');
+          document.getElementById("boutonRéservation").style.opacity = 1;
       });
         
 }
