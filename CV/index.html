@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Thomas Laffay</title>
     <link rel="stylesheet" href="style.css"/>
-
 </head>
-<body onload="">
+<body>
     <canvas id="myCanvas" width="800" height="600"></canvas> 
 
     <div id="mainContainer">
@@ -19,16 +18,22 @@
             </div>
             <div class="containerContent" id="info">
                 <div id="pictureNameContainer">
-                    <img id="picture" alt="Thomas Laffay photo" loading="lazy" src ="https://github.com/Thomz07/thomz07.github.io/blob/master/CV/profile_picture.png?raw=true"/>
+                    <img id="picture" alt="Photo de Thomas Laffay" title="Photo de Thomas Laffay" loading="lazy" src="https://github.com/Thomz07/thomz07.github.io/blob/master/CV/profile_picture.png?raw=true"/>
                     <p id="nomPrenom">Thomas Laffay</p>
                     <p id="dateDeNaissance">25/08/2003</p>
                 </div>
                 <div id="formationScolaireCompetences">
                     <p>06 52 07 22 17</p>
                     <p>thom.laffay@gmail.com</p>
-                    <br><br>
-                    <p><strong>2019-2020</strong><br> Terminale STI2D au Lycée Saint-Denis, Annonay<br>Bac mention Assez Bien</p><br>
-                    <p><strong>2020-2023</strong><br> Bachelor "Chef de projet de la transition du numérique" <br>à l'Ecole LDLC, Limonest</p>
+                    <br>
+                    <div>
+                        <h3>2019-2020 : Terminale STI2D au Lycée Saint-Denis, Annonay</h3>
+                        <p>Bac mention Assez Bien obtenu avec une spécialisation en sciences et technologies de l'industrie et du développement durable.</p>
+                    </div><br>
+                    <div>
+                        <h3>2020-2023 : Bachelor "Chef de projet de la transition du numérique"</h3>
+                        <p>Diplôme obtenu à l'Ecole LDLC, Limonest, avec un accent sur la gestion de projets numériques et la transition numérique dans les entreprises.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,16 +44,29 @@
                 <div id="expandButton" class="navButton"></div>
             </div>
             <div class="containerContent" id="projets">
-                <p class="title">Projets scolaires</p>
+                <h2>Projets scolaires</h2>
                 <div id="projetsContainer">
                     <ul>
-                        <ul>
-                            <li style="margin-left:15px;">Conception et création d'une station météo connectée accessible sur le web en utilisant la technologie Arduino</li>
-                            <li style="margin-left:15px;">Création d'une marque fictive "Diabébic", conception du business model, étude de marché, plan d'action, prévisions financières, etc...</li>
-                            <li style="margin-left:15px;">Création d'une marque fictive "YourPad" à partir de contraintes, conception du business model, étude de marché, plan d'action, prévisions financières, prototypage, charte graphique, image de marque, communication, etc...</li>
-                            <li style="margin-left:15px;">Conception et développement d'un guide virtuel en 360 de la ville de Lyon, mettant en avant des perles du terroir français pour les amateurs de bonnes choses, en utilisant le logiciel <a href="https://speedernet-sphere.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Speedernet Sphère</a></li>
-                            <li style="margin-left:15px;">Conception et développement d'un guide vitruel en 360 du <a href="https://www.univ-lyon2.fr/sciences-et-societe/mumo" target="_blank" rel="noopener noreferrer" style="text-decoration:none">musée des moulages de Lyon</a></li>
-                        </ul>
+                        <li>
+                            <h3>Station météo connectée</h3>
+                            <p>Conception et création d'une station météo connectée accessible sur le web en utilisant la technologie Arduino.</p>
+                        </li>
+                        <li>
+                            <h3>Marque fictive "Diabébic"</h3>
+                            <p>Création d'une marque fictive "Diabébic", incluant la conception du business model, l'étude de marché, le plan d'action et les prévisions financières.</p>
+                        </li>
+                        <li>
+                            <h3>Marque fictive "YourPad"</h3>
+                            <p>Développement d'une marque fictive "YourPad" avec des contraintes spécifiques, incluant la conception du business model, l'étude de marché, le plan d'action, les prévisions financières, le prototypage, la charte graphique, l'image de marque et la communication.</p>
+                        </li>
+                        <li>
+                            <h3>Guide virtuel en 360 de Lyon</h3>
+                            <p>Conception et développement d'un guide virtuel en 360 de la ville de Lyon, mettant en avant des perles du terroir français pour les amateurs de bonnes choses, en utilisant le logiciel <a style="text-decoration:none"  href="https://speedernet-sphere.com" target="_blank" rel="noopener noreferrer">Speedernet Sphère</a>.</p>
+                        </li>
+                        <li>
+                            <h3>Guide virtuel en 360 du musée des moulages de Lyon</h3>
+                            <p>Conception et développement d'un guide virtuel en 360 du <a style="text-decoration:none"  href="https://www.univ-lyon2.fr/sciences-et-societe/mumo" target="_blank" rel="noopener noreferrer">musée des moulages de Lyon</a>.</p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -60,19 +78,41 @@
                 <div id="expandButton" class="navButton"></div>
             </div>
             <div class="containerContent" id="expPro">
-                <p class="title">Expériences professionnelles</p>
+                <h2>Expériences professionnelles</h2>
                 <div id="expProContainer">
                     <ul>
-                        <ul>
-                            <li style="margin-left:15px;">Stage d'observation chez <a href="https://www.fanuc.eu/fr/fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">FANUC Robotics</a> en 2017</li>
-                            <li style="margin-left:15px;">Stage de 1 mois chez <a href="https://a7agencement.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">A7 Agencement</a> en 2021, maintien du site web, création et gestion des réseaux sociaux</li>
-                            <li style="margin-left:15px;">Stage de 4 mois chez <a href="https://resnumerica.org" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Resnumerica</a> en 2021, gestion des réseaux sociaux, organisation du salon Educatec Educatice, rédaction d'article</li>
-                            <li style="margin-left:15px;">Stage de 6 mois chez <a href="https://www.autocomplete.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Autocomplete</a> en 2023, post de Chef de Projet Développeur RPA</li>
-                            <li style="margin-left:15px;">Contrat étudiant de 10h par week-end chez <a href="https://www.carrefour.fr" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Carrefour</a> Market Davézieux de août 2022 à août 2023, Caisse et mise en rayon</li>
-                            <li style="margin-left:15px;">Barman au <a href="https://www.facebook.com/profile.php?id=100063487303398" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Cap's Davézieux</a> depuis septembre 2023, Service au comptoir, Relation client, Nettoyage</li>
-                            <li style="margin-left:15px;">Création d'évènements avec l'association <a href="https://www.facebook.com/conscrits.boulieu.1" target="_blank" rel="noopener noreferrer" style="text-decoration:none">"Conscrits 2023 Boulieu Saint-Clair Savas"</a>, Soirées privées et matinées</li>
-                            <li style="margin-left:15px;">Développement et vente de tweaks pour <a href="https://fr.wikipedia.org/wiki/Débridage_d%27iOS" target="_blank" rel="noopener noreferrer" style="text-decoration:none">iPhone jailbreakés</a> sous iOS 13-15 sur des platformes comme <a href="https://chariz.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Chariz</a> et <a href="https://repo.packix.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Packix</a></li>
-                        </ul>
+                        <li>
+                            <h3>Stage d'observation chez FANUC Robotics</h3>
+                            <p>Stage réalisé en 2017 chez <a style="text-decoration:none"  href="https://www.fanuc.eu/fr/fr" target="_blank" rel="noopener noreferrer">FANUC Robotics</a>, offrant une première expérience dans le domaine de la robotique industrielle.</p>
+                        </li>
+                        <li>
+                            <h3>Stage chez A7 Agencement</h3>
+                            <p>Stage d'un mois réalisé en 2021 chez <a style="text-decoration:none"  href="https://a7agencement.fr" target="_blank" rel="noopener noreferrer">A7 Agencement</a>, impliquant la maintenance du site web et la gestion des réseaux sociaux.</p>
+                        </li>
+                        <li>
+                            <h3>Stage chez Resnumerica</h3>
+                            <p>Stage de quatre mois en 2021 chez <a style="text-decoration:none"  href="https://resnumerica.org" target="_blank" rel="noopener noreferrer">Resnumerica</a>, avec des responsabilités incluant la gestion des réseaux sociaux, l'organisation du salon Educatec Educatice et la rédaction d'articles.</p>
+                        </li>
+                        <li>
+                            <h3>Stage chez Autocomplete</h3>
+                            <p>Stage de six mois en 2023 chez <a style="text-decoration:none"  href="https://www.autocomplete.fr" target="_blank" rel="noopener noreferrer">Autocomplete</a> au poste de Chef de Projet Développeur RPA.</p>
+                        </li>
+                        <li>
+                            <h3>Contrat étudiant chez Carrefour Market Davézieux</h3>
+                            <p>Contrat étudiant de dix heures par week-end chez <a style="text-decoration:none"  href="https://www.carrefour.fr" target="_blank" rel="noopener noreferrer">Carrefour Market Davézieux</a> de août 2022 à août 2023, incluant des responsabilités de caisse et de mise en rayon.</p>
+                        </li>
+                        <li>
+                            <h3>Barman au Cap's Davézieux</h3>
+                            <p>Barman depuis septembre 2023 au <a style="text-decoration:none"  href="https://www.facebook.com/profile.php?id=100063487303398" target="_blank" rel="noopener noreferrer">Cap's Davézieux</a>, avec des responsabilités de service au comptoir, relation client et nettoyage.</p>
+                        </li>
+                        <li>
+                            <h3>Création d'évènements avec l'association "Conscrits 2023 Boulieu Saint-Clair Savas"</h3>
+                            <p>Organisation de soirées privées et matinées avec l'association <a style="text-decoration:none"  href="https://www.facebook.com/conscrits.boulieu.1" target="_blank" rel="noopener noreferrer">Conscrits 2023 Boulieu Saint-Clair Savas</a>.</p>
+                        </li>
+                        <li>
+                            <h3>Développement et vente de tweaks pour iPhone jailbreakés</h3>
+                            <p>Développement et vente de tweaks pour <a style="text-decoration:none"  href="https://fr.wikipedia.org/wiki/Débridage_d%27iOS" target="_blank" rel="noopener noreferrer">iPhone jailbreakés</a> sous iOS 13-15 sur des plateformes comme <a style="text-decoration:none"  href="https://chariz.com/" target="_blank" rel="noopener noreferrer">Chariz</a> et <a style="text-decoration:none"  href="https://repo.packix.com" target="_blank" rel="noopener noreferrer">Packix</a>.</p>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -86,13 +126,13 @@
             <div class="containerContent" id="outils">
                 <div id="container-circle">
                     <div class="circle">
-                        <img src="img/affinity.png" class="square" onclick="showText('affinity','Text')">
-                        <img src="img/python.png" class="square" onclick="showText('python','Text')">
-                        <img src="img/uipath.png" class="square" onclick="showText('uipath','Text')">
-                        <img src="img/robocorp.png" class="square" onclick="showText('robocorp','Text')">
-                        <img src="img/objc.png" class="square" onclick="showText('objc','Text')">
-                        <img src="img/html-css-js-light.png" class="square" id="html-css-js-img" onclick="showText('html','Text')">
-                        <img src="img/gsuite-light.png" class="square" id="gsuite-img" onclick="showText('gsuite','Text')">
+                        <img src="img/affinity.png" alt="Logo Affinity Photo" title="Logo Affinity Photo" class="square" onclick="showText('affinity','Text')">
+                        <img src="img/python.png" alt="Logo Python" title="Logo Python" class="square" onclick="showText('python','Text')">
+                        <img src="img/uipath.png" alt="Logo UIPath" title="Logo UIPath" class="square" onclick="showText('uipath','Text')">
+                        <img src="img/robocorp.png" alt="Logo Robocorp" title="Logo Robocorp" class="square" onclick="showText('robocorp','Text')">
+                        <img src="img/objc.png" alt="Logo Objective-C" title="Logo Objective-C" class="square" onclick="showText('objc','Text')">
+                        <img src="img/html-css-js-light.png" alt="Logo HTML/CSS/JS" title="Logo HTML/CSS/JS" class="square" id="html-css-js-img" onclick="showText('html','Text')">
+                        <img src="img/gsuite-light.png" alt="Logo G Suite" title="Logo G Suite" class="square" id="gsuite-img" onclick="showText('gsuite','Text')">
                     </div>
                 </div>
                 <div id="container-circle-info">
@@ -108,18 +148,16 @@
                 <div id="expandButton" class="navButton"></div>
             </div>
             <div class="containerContent" id="expPro">
-                <p class="title">Compétences</p>
+                <h2>Compétences</h2>
                 <div id="expProContainer">
                     <ul>
-                        <ul>
-                            <li style="margin-left:15px;">Capacité à travailler efficacement en équipe et en autonomie</li>
-                            <li style="margin-left:15px;">Adaptabilité face aux contraintes et changements</li>
-                            <li style="margin-left:15px;">Gestion du stress et efficacité dans les situations urgentes</li>
-                            <li style="margin-left:15px;">Maîtrise de l'anglais (niveau C1)</li>
-                            <li style="margin-left:15px;">Score de 890/990 au test <a href="https://thomz07.github.io/CV/TOEIC.pdf" target="_blank" rel="noopener noreferrer" style="text-decoration:none">TOEIC</a></li>
-                            <li style="margin-left:15px;">Excellentes compétences en communication écrite et orale</li>
-                            <li style="margin-left:15px;">Flexibilité et polyvalence dans différents environnements de travail</li>
-                        </ul>
+                        <li>Capacité à travailler efficacement en équipe et en autonomie</li>
+                        <li>Adaptabilité face aux contraintes et changements</li>
+                        <li>Gestion du stress et efficacité dans les situations urgentes</li>
+                        <li>Maîtrise de l'anglais (niveau C1)</li>
+                        <li>Score de 890/990 au test <a style="text-decoration:none" href="https://thomz07.github.io/CV/TOEIC.pdf" target="_blank" rel="noopener noreferrer">TOEIC</a></li>
+                        <li>Excellentes compétences en communication écrite et orale</li>
+                        <li>Flexibilité et polyvalence dans différents environnements de travail</li>
                     </ul>
                 </div>
             </div>
@@ -132,28 +170,28 @@
             </div>
             <div class="container-content" id="tweaks">
                 <div id="tweaks-icons-container">
-                    <img src="img/multipla@3x.png" class="tweak-icons tweaks-selected tweak-icons-hover-selected" id="multipla" onclick="showTweakText('multipla','tweak-description-title', 'tweak-description')">
-                    <img src="img/cenamo@3x.png" class="tweak-icons tweak-icons-hover-not-selected" id="cenamo" onclick="showTweakText('cenamo','tweak-description-title', 'tweak-description')">
-                    <img src="img/folded-icon.png" class="tweak-icons tweak-icons-hover-not-selected" id="folded" onclick="showTweakText('folded','tweak-description-title', 'tweak-description')">
+                    <img src="img/multipla@3x.png" alt="Logo Multipla" title="Logo Multipla" class="tweak-icons tweaks-selected tweak-icons-hover-selected" id="multipla" onclick="showTweakText('multipla','tweak-description-title', 'tweak-description')">
+                    <img src="img/cenamo@3x.png" alt="Logo Cenamo" title="Logo Cenamo" class="tweak-icons tweak-icons-hover-not-selected" id="cenamo" onclick="showTweakText('cenamo','tweak-description-title', 'tweak-description')">
+                    <img src="img/folded-icon.png" alt="Logo Folded" title="Logo Folded" class="tweak-icons tweak-icons-hover-not-selected" id="folded" onclick="showTweakText('folded','tweak-description-title', 'tweak-description')">
                 </div>
                 <div id="tweaks-icons-description">
                     <br>
-                    <p id="tweak-description-title"><strong><a href='https://chariz.com/buy/multipla' target='_blank' rel='noopener noreferrer' style='text-decoration:none'>Multipla</a></strong> - power to your dock</p>
+                    <p id="tweak-description-title"><strong><a style="text-decoration:none" href='https://chariz.com/buy/multipla' target='_blank' rel='noopener noreferrer'>Multipla</a></strong> - power to your dock</p>
                     <br>
-                    <p id="tweak-description">Multipla est un tweak pour iPhones jailbreakés qui améliore le dock standard en y ajoutant des widgets.<br>Parmi les fonctionnalités, on retrouve divers widgets (musique, météo, batterie, etc.), la personnalisation du dock, l’activation du dock flottant et une API pour intégrer ses propres widgets.</p>
+                    <p id="tweak-description">Multipla est un tweak pour iPhones jailbreakés qui améliore le dock standard en y ajoutant des widgets. Parmi les fonctionnalités, on retrouve divers widgets (musique, météo, batterie, etc.), la personnalisation du dock, l’activation du dock flottant et une API pour intégrer ses propres widgets.</p>
                     <div id="tweak-screenshots-with-buttons">
-                        <button id="prev-button"><img id="previous-button-img" src="img/previous-arrow-light.png" width="25px"></button>
+                        <button id="prev-button"><img id="previous-button-img" src="img/previous-arrow-light.png" alt="Précédent" title="Précédent" width="25px"></button>
                         <div id="tweak-screenshots-container">
                             <div id="tweak-screenshots">
-                                <img src="img/multipla-2.0-1.jpg" id="screenshot1" class="screenshots"/>
-                                <img src="img/multipla-2.0-2.jpg" id="screenshot2" class="screenshots"/>
-                                <img src="img/multipla-2.0-3.jpg" id="screenshot3" class="screenshots"/>
-                                <img src="img/multipla-2.0-4.jpg" id="screenshot4" class="screenshots"/>
-                                <img src="img/multipla-2.0-5.jpg" id="screenshot5" class="screenshots"/>
-                                <img src="img/multipla-2.0-6.jpg" id="screenshot6" class="screenshots"/>
+                                <img src="img/multipla-2.0-1.jpg" alt="Screenshot 1" title="Screenshot 1" id="screenshot1" class="screenshots"/>
+                                <img src="img/multipla-2.0-2.jpg" alt="Screenshot 2" title="Screenshot 2" id="screenshot2" class="screenshots"/>
+                                <img src="img/multipla-2.0-3.jpg" alt="Screenshot 3" title="Screenshot 3" id="screenshot3" class="screenshots"/>
+                                <img src="img/multipla-2.0-4.jpg" alt="Screenshot 4" title="Screenshot 4" id="screenshot4" class="screenshots"/>
+                                <img src="img/multipla-2.0-5.jpg" alt="Screenshot 5" title="Screenshot 5" id="screenshot5" class="screenshots"/>
+                                <img src="img/multipla-2.0-6.jpg" alt="Screenshot 6" title="Screenshot 6" id="screenshot6" class="screenshots"/>
                             </div>
                         </div>
-                        <button id="next-button"><img id="next-button-img" src="img/next-arrow-light.png" width="25px"></button>
+                        <button id="next-button"><img id="next-button-img" src="img/next-arrow-light.png" alt="Suivant" title="Suivant" width="25px"></button>
                     </div>
                 </div>
             </div>
@@ -161,7 +199,5 @@
             <script src="tweaks.js"></script>
         </div>
     </div> 
- 
-    </script>
 </body>
 </html>
