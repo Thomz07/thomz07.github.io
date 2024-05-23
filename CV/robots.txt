@@ -1,0 +1,18 @@
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /admin/
+
+# Directives spécifiques pour certains robots
+User-agent: Googlebot
+Disallow: /no-google/
+
+User-agent: Bingbot
+Disallow: /no-bing/
+
+# Autoriser tout le reste
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.votresite.com/sitemap.xml
