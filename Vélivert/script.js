@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const stationList = document.getElementById('station-list');
     const favoritesList = document.getElementById('favorites-list');
+    const clearBtn = document.querySelector('.clear-btn');
 
     // Fonction pour récupérer les informations des stations et le statut des vélos
     function fetchData() {
@@ -34,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const bikeCount = bikeCountByStation[station.station_id] || 0;
                 const isFavorite = favorites.includes(station.station_id);
                 stationDiv.innerHTML = `
-                    <h3>${station.name} <button class="favorite-btn out-favorite">${isFavorite ? '★' : '✰'}</button></h3>
+                    <h3>${station.name}</h3>
+                    <button class="favorite-btn">${isFavorite ? '- Favoris' : '+ Favoris'}</button>
                     <p>${bikeCount} vélos disponibles </p>
                 `;
                 stationDiv.style.display = isFavorite ? "none" : "block";
@@ -88,7 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 stationDiv.className = 'station';
                 const bikeCount = bikeCountByStation[station.station_id] || 0;
                 stationDiv.innerHTML = `
-                    <h3>${station.name} <button class="favorite-btn in-favorite">★</button></h3>
+                    <h3>${station.name}</h3>
+                    <button class="favorite-btn ">- Favoris</button>
                     <p>${bikeCount} vélos disponibles </p>
                     
                 `;
@@ -103,6 +106,15 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    // Fonction pour effacer tous les favoris
+    function clearFavorites() {
+        localStorage.removeItem('favorites');
+        fetchData(); // Re-fetch data to update both sections
+    }
+
+    // Ajouter un gestionnaire d'événement pour le bouton clear-btn
+    clearBtn.addEventListener('click', clearFavorites);
 
     // Appeler la fonction fetchData une première fois
     fetchData();
