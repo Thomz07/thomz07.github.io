@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const stationList = document.getElementById('station-list');
     const favoritesList = document.getElementById('favorites-list');
     const clearBtn = document.querySelector('.clear-btn');
+    const searchInput = document.getElementById('search-input');
+
+    let allStations = [];
+    let bikeCountByStation = {};
 
     // Fonction pour récupérer les informations des stations et le statut des vélos
     function fetchData() {
@@ -10,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
             fetch('https://api.saint-etienne-metropole.fr/velivert/api/free_bike_status.json').then(response => response.json())
         ])
         .then(([stationData, bikeData]) => {
-            const stations = stationData.data.stations;
+            allStations = stationData.data.stations;
             const bikes = bikeData.data.bikes;
 
             // Créer un objet pour compter les vélos disponibles par station
-            const bikeCountByStation = {};
+            bikeCountByStation = {};
 
             bikes.forEach(bike => {
                 if (bike.station_id) {
@@ -25,35 +29,40 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
 
-            // Vider la liste avant de la remplir
-            stationList.innerHTML = '';
-            const favorites = getFavorites();
-
-            stations.forEach(station => {
-                const stationDiv = document.createElement('div');
-                stationDiv.className = 'station';
-                const bikeCount = bikeCountByStation[station.station_id] || 0;
-                const isFavorite = favorites.includes(station.station_id);
-                stationDiv.innerHTML = `
-                    <h3>${station.name}</h3>
-                    <button class="favorite-btn">${isFavorite ? '- Favoris' : '+ Favoris'}</button>
-                    <p>${bikeCount} vélo${bikeCount > 1 ? 's' : ''}</p>
-                `;
-                stationDiv.style.display = isFavorite ? "none" : "block";
-
-                // Ajouter un gestionnaire d'événement pour le bouton favori
-                const favoriteBtn = stationDiv.querySelector('.favorite-btn');
-                favoriteBtn.addEventListener('click', () => {
-                    toggleFavorite(station.station_id);
-                });
-
-                stationList.appendChild(stationDiv);
-            });
-
+            // Afficher les stations
+            displayStations(allStations);
             // Mettre à jour la section favoris
-            updateFavoritesList(stations, bikeCountByStation);
+            updateFavoritesList();
         })
         .catch(error => console.error('Erreur:', error));
+    }
+
+    // Fonction pour afficher les stations
+    function displayStations(stations) {
+        // Vider la liste avant de la remplir
+        stationList.innerHTML = '';
+        const favorites = getFavorites();
+
+        stations.forEach(station => {
+            const stationDiv = document.createElement('div');
+            stationDiv.className = 'station';
+            const bikeCount = bikeCountByStation[station.station_id] || 0;
+            const isFavorite = favorites.includes(station.station_id);
+            stationDiv.innerHTML = `
+                <h3>${station.name}</h3>
+                <button class="favorite-btn">${isFavorite ? '- Favoris' : '+ Favoris'}</button>
+                <p>${bikeCount} vélos disponibles </p>
+            `;
+            stationDiv.style.display = isFavorite ? "none" : "block";
+
+            // Ajouter un gestionnaire d'événement pour le bouton favori
+            const favoriteBtn = stationDiv.querySelector('.favorite-btn');
+            favoriteBtn.addEventListener('click', () => {
+                toggleFavorite(station.station_id);
+            });
+
+            stationList.appendChild(stationDiv);
+        });
     }
 
     // Fonction pour obtenir les favoris depuis le localStorage
@@ -79,12 +88,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Fonction pour mettre à jour la section des favoris
-    function updateFavoritesList(stations, bikeCountByStation) {
+    function updateFavoritesList() {
+        searchStations();
         const favorites = getFavorites();
         favoritesList.innerHTML = '';
 
         favorites.forEach(favoriteId => {
-            const station = stations.find(station => station.station_id === favoriteId);
+            const station = allStations.find(station => station.station_id === favoriteId);
             if (station) {
                 const stationDiv = document.createElement('div');
                 stationDiv.className = 'station';
@@ -92,8 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 stationDiv.innerHTML = `
                     <h3>${station.name}</h3>
                     <button class="favorite-btn ">- Favoris</button>
-                    <p>${bikeCount} vélo${bikeCount > 1 ? 's' : ''}</p>
-                    
+                    <p>${bikeCount} vélos disponibles </p>
                 `;
 
                 // Ajouter un gestionnaire d'événement pour le bouton favori
@@ -115,6 +124,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Ajouter un gestionnaire d'événement pour le bouton clear-btn
     clearBtn.addEventListener('click', clearFavorites);
+
+    // Fonction pour rechercher des stations par nom
+    function searchStations() {
+        const query = searchInput.value.toLowerCase();
+        const filteredStations = allStations.filter(station => station.name.toLowerCase().includes(query));
+        displayStations(filteredStations);
+    }
+
+    // Ajouter un gestionnaire d'événement pour le champ de recherche
+    searchInput.addEventListener('input', searchStations);
 
     // Appeler la fonction fetchData une première fois
     fetchData();
