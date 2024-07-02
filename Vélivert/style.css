@@ -35,11 +35,20 @@ h2 {
 
 .station, .bike {
     padding-left: 10px;
-    padding-bottom: 10px;
     border-radius: 10px;
-    width: 200px;
+    width: 175px;
     color : white;
     background: #4CAF50;
+}
+
+@media (max-width: 800px) {
+    .station, .bike {
+        padding-left: 10px;
+        border-radius: 10px;
+        width: 125px;
+        color : white;
+        background: #4CAF50;
+    }
 }
 
 .favorite-btn {

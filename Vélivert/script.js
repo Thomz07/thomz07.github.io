@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 stationDiv.innerHTML = `
                     <h3>${station.name}</h3>
                     <button class="favorite-btn">${isFavorite ? '- Favoris' : '+ Favoris'}</button>
-                    <p>${bikeCount} vélos disponibles </p>
+                    <p>${bikeCount} vélo${bikeCount > 1 ? 's' : ''}</p>
                 `;
                 stationDiv.style.display = isFavorite ? "none" : "block";
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 stationDiv.innerHTML = `
                     <h3>${station.name}</h3>
                     <button class="favorite-btn ">- Favoris</button>
-                    <p>${bikeCount} vélos disponibles </p>
+                    <p>${bikeCount} vélo${bikeCount > 1 ? 's' : ''}</p>
                     
                 `;
 
