@@ -34,9 +34,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const bikeCount = bikeCountByStation[station.station_id] || 0;
                 const isFavorite = favorites.includes(station.station_id);
                 stationDiv.innerHTML = `
-                    <h3>${station.name}</h3>
+                    <h3>${station.name} <button class="favorite-btn out-favorite">${isFavorite ? '★' : '✰'}</button></h3>
                     <p>${bikeCount} vélos disponibles </p>
-                    <button class="favorite-btn out-favorite">${isFavorite ? '★' : '✰'}</button>
                 `;
                 stationDiv.style.display = isFavorite ? "none" : "block";
 
@@ -89,9 +88,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 stationDiv.className = 'station';
                 const bikeCount = bikeCountByStation[station.station_id] || 0;
                 stationDiv.innerHTML = `
-                    <h3>${station.name}</h3>
+                    <h3>${station.name} <button class="favorite-btn in-favorite">★</button></h3>
                     <p>${bikeCount} vélos disponibles </p>
-                    <button class="favorite-btn in-favorite">★</button>
+                    
                 `;
 
                 // Ajouter un gestionnaire d'événement pour le bouton favori
