@@ -76,11 +76,10 @@ h2 {
     color: white;
     margin-right: 10px;
     flex-grow: 1;
-    max-width: 200px;
+    width: 100px;
 }
 
 ::placeholder {
     color: white;
     font-weight: bold;
 }
-
