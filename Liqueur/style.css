@@ -17,7 +17,7 @@ html, body {
 .imgContainer {
   position: relative;
   width: 200px;
-  height: 220px;
+  height: 250px;
   overflow: hidden;
   margin: 10px auto;
 }
