@@ -155,6 +155,7 @@
     background-image: url();
     border: solid 0.5px #8d8c8c;
     margin:20px;
+    object-fit: cover;
   }
 
   .tweakImages {
