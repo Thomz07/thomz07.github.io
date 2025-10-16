@@ -49,6 +49,26 @@ function bubble(text, who) {
   return div;
 }
 
+// Normalise une erreur en texte lisible
+function formatError(err) {
+  try {
+    if (!err) return 'Erreur inconnue';
+    if (typeof err === 'string') return err;
+    // Puter et autres: chemins fréquents
+    if (err.message) return err.message;
+    if (err.error?.message) return err.error.message;
+    if (err.response?.data?.error?.message) return err.response.data.error.message;
+    if (err.response?.data?.message) return err.response.data.message;
+    if (err.response?.status) return `HTTP ${err.response.status}: ${err.response.statusText || ''}`.trim();
+    // Si c'est un objet simple, on le stringify
+    const json = JSON.stringify(err, Object.getOwnPropertyNames(err), 2);
+    if (json && json !== '{}') return json;
+    return String(err);
+  } catch {
+    return 'Erreur (formatage impossible)';
+  }
+}
+
 function renderChips() {
   chips.innerHTML = '';
   for (let i = 0; i < attachments.length; i++) {
@@ -188,14 +208,48 @@ async function send() {
     const stream = await puter.ai.chat(messages, { model, stream:true, temperature:0.7 });
     let acc = '';
     for await (const part of stream) {
-      const piece = part?.text || '';
+      // Gère différents formats de stream et erreurs en-ligne
+      if (part?.error) {
+        throw part.error;
+      }
+      let piece = '';
+      if (typeof part === 'string') {
+        piece = part;
+      } else if (typeof part?.text === 'string') {
+        piece = part.text;
+      } else if (part?.delta?.content) {
+        piece = String(part.delta.content);
+      } else if (Array.isArray(part?.choices) && part.choices[0]?.delta?.content) {
+        piece = String(part.choices[0].delta.content);
+      }
       acc += piece;
       ph.textContent = acc;
       chatEl.scrollTop = chatEl.scrollHeight;
     }
     messages.push({ role:'assistant', content: acc });
   } catch (e) {
-    ph.textContent = 'Erreur: ' + (e?.message || e);
+    const msg = formatError(e);
+    console.error('Chat error:', e);
+    // Fallback automatique si usage-limited / permission denied
+    if (/usage-limited-chat|Permission denied|403|quota|limit/i.test(msg)) {
+      try {
+        const fallbackModel = 'gpt-5-nano';
+        let acc2 = '[Fallback testMode → ' + fallbackModel + ']\n';
+        ph.textContent = acc2;
+        const alt = await puter.ai.chat(messages, true, { model: fallbackModel, stream: true, temperature: 0.7 });
+        for await (const part of alt) {
+          const piece = typeof part?.text === 'string' ? part.text : '';
+          acc2 += piece;
+          ph.textContent = acc2;
+          chatEl.scrollTop = chatEl.scrollHeight;
+        }
+        messages.push({ role:'assistant', content: acc2 });
+      } catch (e2) {
+        ph.textContent = 'Erreur (fallback): ' + formatError(e2) + '\nCause initiale: ' + msg;
+      }
+    } else {
+      ph.textContent = 'Erreur: ' + msg;
+    }
   } finally {
     sendBtn.disabled = false;
     attachments = [];
@@ -214,11 +268,14 @@ inputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKe
   if (themeToggle) themeToggle.checked = theme === 'light';
   if (themeLabel) themeLabel.textContent = theme === 'light' ? 'Light' : 'Dark';
 
-  populateProviders();
-  const savedProv = localStorage.getItem('puter_model_provider') || 'Claude';
-  const savedModel = localStorage.getItem('puter_model_name') || 'claude-sonnet-4-5';
-  providerSel.value = savedProv;
-  populateModels(savedProv, savedModel);
+  // Initialisation des sélecteurs modèle/fournisseur uniquement s'ils existent dans la page
+  if (providerSel && modelSel && modelBadge) {
+    populateProviders();
+    const savedProv = localStorage.getItem('puter_model_provider') || 'Claude';
+    const savedModel = localStorage.getItem('puter_model_name') || 'claude-sonnet-4-5';
+    providerSel.value = savedProv;
+    populateModels(savedProv, savedModel);
+  }
 
   await refreshAuth();
   try { await puter.kv.get('___noop'); await refreshAuth(); } catch {}
