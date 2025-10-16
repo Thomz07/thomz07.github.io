@@ -1,0 +1,238 @@
+/*
+	Styles de Claude Client
+	— Mise en forme lisible sans changement fonctionnel —
+*/
+
+/* Variables de thème */
+:root {
+	--bg: #0b0c10;
+	--panel: #17191f;
+	--muted: #9aa0aa;
+	--text: #e9edf2;
+	--accent: #3a7afe;
+	--border: #262a33;
+}
+
+/* Thème clair (basculé via [data-theme="light"]) */
+[data-theme="light"] {
+	--bg: #f7f8fa;
+	--panel: #ffffff;
+	--muted: #63707e;
+	--text: #0d1117;
+	--accent: #265df6;
+	--border: #e4e7eb;
+}
+
+/* Reset de base */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto;
+	/* anim/transition douce lors du switch */
+	transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Mise en page */
+.wrap {
+	min-height: 100vh;
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+h1 {
+	font-size: 18px;
+	margin: 0;
+}
+
+/* Zone d'authentification */
+.auth {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.user {
+	font-size: 12px;
+	color: var(--muted);
+}
+
+/* Boutons */
+.btn {
+	border: 1px solid var(--border);
+	background: var(--panel);
+	color: var(--text);
+	padding: 8px 12px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.btn[disabled] {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Carte / conteneur principal */
+.card {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--border);
+	background: var(--panel);
+	border-radius: 14px;
+	min-height: 0;
+	transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+/* Zone de discussion */
+.chat {
+	flex: 1;
+	overflow: auto;
+	padding: 16px;
+	scroll-behavior: smooth;
+	min-height: 0;
+}
+
+/* Barre d'entrée */
+.row {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 10px 16px;
+	border-top: 1px solid var(--border);
+	flex-wrap: wrap;
+}
+
+textarea {
+	flex: 1 1 420px;
+	resize: vertical;
+	min-height: 42px;
+	max-height: 35vh;
+	background: #0f1116; /* par défaut sombre */
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 10px;
+	transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+/* textarea en clair */
+[data-theme="light"] textarea {
+	background: #ffffff;
+}
+
+.send {
+	width: 120px;
+}
+
+/* Bulles de messages */
+.bubble {
+	max-width: 76ch;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	margin: 8px 0;
+	white-space: pre-wrap;
+	transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.usermsg {
+	background: #0f1116;
+}
+
+.aimsg {
+	background: #121521;
+}
+
+/* bulles en clair */
+[data-theme="light"] .usermsg {
+	background: #f4f6f8;
+}
+
+[data-theme="light"] .aimsg {
+	background: #f1f4ff;
+}
+
+/* Texte auxiliaire */
+.muted {
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.model {
+	font-size: 12px;
+	color: var(--muted);
+	margin-left: 8px;
+}
+
+/* Pièces jointes */
+.attachbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	padding: 4px 8px;
+	font-size: 12px;
+	background: #10121a; /* sombre par défaut */
+	transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.pill button {
+	border: none;
+	background: transparent;
+	color: var(--muted);
+	cursor: pointer;
+	padding: 0 4px;
+}
+
+/* pill en clair */
+[data-theme="light"] .pill {
+	background: #f4f6f8;
+}
+
+/* Utilitaires */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Effet fade léger lors du switch de thème */
+.theme-fade {
+	animation: themeFade 180ms ease;
+}
+
+@keyframes themeFade {
+	from { opacity: 0.4; }
+	to { opacity: 1; }
+}

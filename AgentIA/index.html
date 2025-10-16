@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Claude 4.5 • Puter.js Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://js.puter.com/v2/"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div><h1>Claude 4.5 Client <span class="model">model: claude-sonnet-4-5</span></h1></div>
+      <div class="auth">
+        <label class="pill" title="Basculer clair/sombre" style="user-select:none;cursor:pointer">
+          <input id="theme-toggle" type="checkbox" style="appearance:none;width:0;height:0;position:absolute;left:-9999px">
+          <span id="theme-label">Dark</span>
+        </label>
+        <span id="user-info" class="user">Statut: inconnu</span>
+        <button id="signin" class="btn">Se connecter</button>
+        <button id="signout" class="btn" style="display:none">Se déconnecter</button>
+      </div>
+    </header>
+
+    <div class="card">
+      <div id="chat" class="chat"></div>
+      <div class="row">
+        <div class="attachbar">
+          <input id="file-input" class="visually-hidden" type="file" multiple>
+          <button id="btn-local" class="btn" title="Joindre depuis votre appareil">Joindre</button>
+          <button id="btn-cloud" class="btn" title="Joindre depuis Puter">Cloud Puter</button>
+          <div id="chips"></div>
+          <button id="clear" class="btn">Vider</button>
+        </div>
+        <textarea id="input" placeholder="Pose ta question..."></textarea>
+        <button id="send" class="btn send">Envoyer</button>
+      </div>
+    </div>
+    <p class="muted">Astuce : les pièces jointes sont téléversées sur ton espace Puter puis envoyées au modèle avec le message.</p>
+  </div>
+
+  <script src="claude.js"></script>
+</body>
+</html>
