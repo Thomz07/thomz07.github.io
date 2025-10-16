@@ -1,4 +1,3 @@
-// Extracted from claude.html
 const chatEl = document.getElementById('chat');
 const inputEl = document.getElementById('input');
 const sendBtn = document.getElementById('send');
@@ -12,9 +11,34 @@ const btnCloud = document.getElementById('btn-cloud');
 const chips = document.getElementById('chips');
 const themeToggle = document.getElementById('theme-toggle');
 const themeLabel = document.getElementById('theme-label');
+const providerSel = document.getElementById('provider');
+const modelSel = document.getElementById('model');
+const modelBadge = document.getElementById('model-badge');
 
 let messages = [];
-let attachments = []; // {name, path, size}
+let attachments = [];
+
+/* Catalogue modèles (extraits des tutos Puter) */
+const CATALOG = {
+  OpenAI: [
+    'gpt-5', 'gpt-5-mini', 'gpt-5-nano', 'gpt-5-chat-latest',
+    'gpt-4.5-preview', 'gpt-4.1', 'gpt-4.1-mini', 'gpt-4.1-nano',
+    'gpt-4o', 'gpt-4o-mini', 'o1', 'o1-mini', 'o1-pro', 'o3', 'o3-mini', 'o4-mini'
+  ],
+  Claude: [
+    'claude-sonnet-4-5', 'claude-sonnet-4', 'claude-opus-4', 'claude-opus-4-1', 'claude-3-7-sonnet', 'claude-3-7-opus'
+  ],
+  Gemini: [
+    'google/gemini-2.5-pro', 'google/gemini-2.0-flash-lite-001', 'gemini-2.0-flash', 'google/gemini-flash-1.5'
+  ],
+  DeepSeek: [
+    'deepseek-chat', 'deepseek-reasoner'
+  ],
+  Mistral: [
+    'mistralai/mistral-large', 'mistralai/mistral-medium', 'mistralai/mistral-small', 'mistralai/mistral-nemo',
+    'mistralai/codestral-2508'
+  ]
+};
 
 function bubble(text, who) {
   const div = document.createElement('div');
@@ -68,6 +92,40 @@ async function refreshAuth() {
   }
 }
 
+/* Sélection modèles */
+function populateProviders() {
+  providerSel.innerHTML = '';
+  Object.keys(CATALOG).forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p;
+    opt.textContent = p;
+    providerSel.appendChild(opt);
+  });
+}
+
+function populateModels(provider, presetModel) {
+  modelSel.innerHTML = '';
+  const list = CATALOG[provider] || [];
+  list.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = m;
+    modelSel.appendChild(opt);
+  });
+  if (presetModel && list.includes(presetModel)) {
+    modelSel.value = presetModel;
+  }
+  modelBadge.textContent = 'model: ' + modelSel.value;
+  localStorage.setItem('puter_model_provider', provider);
+  localStorage.setItem('puter_model_name', modelSel.value);
+}
+
+providerSel?.addEventListener('change', () => populateModels(providerSel.value));
+modelSel?.addEventListener('change', () => {
+  modelBadge.textContent = 'model: ' + modelSel.value;
+  localStorage.setItem('puter_model_name', modelSel.value);
+});
+
 signinBtn.addEventListener('click', async () => {
   signinBtn.disabled = true;
   try { await puter.auth.signIn(); }
@@ -119,13 +177,15 @@ async function send() {
   const userDisplay = [text, ...attachments.map(a => `[fichier] ${a.name || a.path.split('/').pop()}`)].filter(Boolean).join('\n');
   bubble(userDisplay, 'user');
 
-  messages.push({ role:'user', content: parts.length === 1 && typeof parts[0] === 'object' && parts[0].type === 'text' ? text : parts });
+  const userMsg = (parts.length === 1 && parts[0].type === 'text') ? text : parts;
+  messages.push({ role:'user', content: userMsg });
 
   const ph = bubble('', 'ai');
   sendBtn.disabled = true;
 
   try {
-    const stream = await puter.ai.chat(messages, { model:'claude-sonnet-4-5', stream:true, temperature:0.7 });
+    const model = modelSel?.value || 'claude-sonnet-4-5';
+    const stream = await puter.ai.chat(messages, { model, stream:true, temperature:0.7 });
     let acc = '';
     for await (const part of stream) {
       const piece = part?.text || '';
@@ -147,29 +207,27 @@ sendBtn.addEventListener('click', send);
 inputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
 
 (async function boot(){
-  // Init thème (storage > prefers-color-scheme > default dark)
   const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  const saved = localStorage.getItem('theme');
-  const theme = saved || (prefersLight ? 'light' : 'dark');
+  const savedTheme = localStorage.getItem('theme');
+  const theme = savedTheme || (prefersLight ? 'light' : 'dark');
   document.documentElement.setAttribute('data-theme', theme);
-  if (themeToggle) {
-    themeToggle.checked = theme === 'light';
-  }
-  if (themeLabel) {
-    themeLabel.textContent = theme === 'light' ? 'Light' : 'Dark';
-  }
+  if (themeToggle) themeToggle.checked = theme === 'light';
+  if (themeLabel) themeLabel.textContent = theme === 'light' ? 'Light' : 'Dark';
+
+  populateProviders();
+  const savedProv = localStorage.getItem('puter_model_provider') || 'Claude';
+  const savedModel = localStorage.getItem('puter_model_name') || 'claude-sonnet-4-5';
+  providerSel.value = savedProv;
+  populateModels(savedProv, savedModel);
 
   await refreshAuth();
   try { await puter.kv.get('___noop'); await refreshAuth(); } catch {}
 })();
 
-// Basculer le thème avec un léger fade et persistance
 if (themeToggle) {
   themeToggle.addEventListener('change', () => {
     const next = themeToggle.checked ? 'light' : 'dark';
     document.documentElement.classList.remove('theme-fade');
-    // Forcer un reflow pour redémarrer l'animation
-    // eslint-disable-next-line no-unused-expressions
     void document.documentElement.offsetWidth;
     document.documentElement.setAttribute('data-theme', next);
     document.documentElement.classList.add('theme-fade');

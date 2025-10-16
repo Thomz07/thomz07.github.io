@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Claude 4.5 • Puter.js Client</title>
+  <title>Puter.js Client • Multi-modèles</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://js.puter.com/v2/"></script>
   <link rel="stylesheet" href="style.css">
@@ -10,8 +10,14 @@
 <body>
   <div class="wrap">
     <header>
-      <div><h1>Claude 4.5 Client <span class="model">model: claude-sonnet-4-5</span></h1></div>
-      <div class="auth">
+      <div class="brand">
+        <h1>Puter Chat <span id="model-badge" class="model">model: claude-sonnet-4-5</span></h1>
+      </div>
+      <div class="controls">
+        <div class="modelbar">
+          <select id="provider" class="select"></select>
+          <select id="model" class="select"></select>
+        </div>
         <label class="pill" title="Basculer clair/sombre" style="user-select:none;cursor:pointer">
           <input id="theme-toggle" type="checkbox" style="appearance:none;width:0;height:0;position:absolute;left:-9999px">
           <span id="theme-label">Dark</span>
@@ -36,7 +42,7 @@
         <button id="send" class="btn send">Envoyer</button>
       </div>
     </div>
-    <p class="muted">Astuce : les pièces jointes sont téléversées sur ton espace Puter puis envoyées au modèle avec le message.</p>
+    <p class="muted">Les pièces jointes sont téléversées sur ton espace Puter puis envoyées au modèle avec le message.</p>
   </div>
 
   <script src="claude.js"></script>
