@@ -17,6 +17,7 @@ const modelBadge = document.getElementById('model-badge');
 
 let messages = [];
 let attachments = [];
+let currentStreamToken = 0; // pour annuler proprement un stream en cours
 
 /* Catalogue modèles (extraits des tutos Puter) */
 const CATALOG = {
@@ -141,9 +142,20 @@ function populateModels(provider, presetModel) {
 }
 
 providerSel?.addEventListener('change', () => populateModels(providerSel.value));
-modelSel?.addEventListener('change', () => {
+modelSel?.addEventListener('change', async () => {
   modelBadge.textContent = 'model: ' + modelSel.value;
   localStorage.setItem('puter_model_name', modelSel.value);
+  // Si une conversation existe déjà, relancer avec le nouveau modèle
+  if (messages.length > 0) {
+    // Annule le stream courant
+    currentStreamToken++;
+    const note = bubble(`↻ Modèle changé → ${modelSel.value} (recalcule...)`, 'ai');
+    try {
+      await runStreamWithModel(modelSel.value, note);
+    } catch (e) {
+      note.textContent = 'Erreur: ' + formatError(e);
+    }
+  }
 });
 
 signinBtn.addEventListener('click', async () => {
@@ -204,29 +216,7 @@ async function send() {
   sendBtn.disabled = true;
 
   try {
-    const model = modelSel?.value || 'claude-sonnet-4-5';
-    const stream = await puter.ai.chat(messages, { model, stream:true, temperature:0.7 });
-    let acc = '';
-    for await (const part of stream) {
-      // Gère différents formats de stream et erreurs en-ligne
-      if (part?.error) {
-        throw part.error;
-      }
-      let piece = '';
-      if (typeof part === 'string') {
-        piece = part;
-      } else if (typeof part?.text === 'string') {
-        piece = part.text;
-      } else if (part?.delta?.content) {
-        piece = String(part.delta.content);
-      } else if (Array.isArray(part?.choices) && part.choices[0]?.delta?.content) {
-        piece = String(part.choices[0].delta.content);
-      }
-      acc += piece;
-      ph.textContent = acc;
-      chatEl.scrollTop = chatEl.scrollHeight;
-    }
-    messages.push({ role:'assistant', content: acc });
+    await runStreamWithModel(modelSel?.value || 'claude-sonnet-4-5', ph);
   } catch (e) {
     const msg = formatError(e);
     console.error('Chat error:', e);
@@ -237,7 +227,9 @@ async function send() {
         let acc2 = '[Fallback testMode → ' + fallbackModel + ']\n';
         ph.textContent = acc2;
         const alt = await puter.ai.chat(messages, true, { model: fallbackModel, stream: true, temperature: 0.7 });
+        const myToken = ++currentStreamToken;
         for await (const part of alt) {
+          if (myToken !== currentStreamToken) break; // stream annulé entre-temps
           const piece = typeof part?.text === 'string' ? part.text : '';
           acc2 += piece;
           ph.textContent = acc2;
@@ -255,6 +247,32 @@ async function send() {
     attachments = [];
     renderChips();
   }
+}
+
+// Lance un stream avec annulation sûre et parsing robuste
+async function runStreamWithModel(model, targetBubble) {
+  const myToken = ++currentStreamToken;
+  const stream = await puter.ai.chat(messages, { model, stream: true, temperature: 0.7 });
+  let acc = '';
+  for await (const part of stream) {
+    if (myToken !== currentStreamToken) break; // annulé (modèle changé ou nouvel envoi)
+    if (part?.error) throw part.error;
+    let piece = '';
+    if (typeof part === 'string') {
+      piece = part;
+    } else if (typeof part?.text === 'string') {
+      piece = part.text;
+    } else if (part?.delta?.content) {
+      piece = String(part.delta.content);
+    } else if (Array.isArray(part?.choices) && part.choices[0]?.delta?.content) {
+      piece = String(part.choices[0].delta.content);
+    }
+    acc += piece;
+    targetBubble.textContent = acc;
+    chatEl.scrollTop = chatEl.scrollHeight;
+  }
+  // Si on a réellement accumulé une réponse, on la pousse dans l'historique
+  if (acc) messages.push({ role: 'assistant', content: acc });
 }
 
 sendBtn.addEventListener('click', send);
