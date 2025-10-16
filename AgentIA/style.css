@@ -44,7 +44,8 @@ body {
 
 /* Mise en page */
 .wrap {
-	min-height: 100vh;
+	/* Fixe l'app à la hauteur de la fenêtre pour empêcher la page de grandir */
+	height: 100dvh;
 	max-width: 980px;
 	margin: 0 auto;
 	padding: 24px;
@@ -101,13 +102,16 @@ h1 {
 	background: var(--panel);
 	border-radius: 14px;
 	min-height: 0;
+	/* Empêche le contenu interne de forcer l'agrandissement de la carte */
+	overflow: hidden;
 	transition: background-color 200ms ease, border-color 200ms ease;
 }
 
 /* Zone de discussion */
 .chat {
 	flex: 1;
-	overflow: auto;
+	/* Le scroll se fait dans cette zone */
+	overflow-y: auto;
 	padding: 16px;
 	scroll-behavior: smooth;
 	min-height: 0;
