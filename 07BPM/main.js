@@ -146,17 +146,47 @@ document.querySelectorAll("[data-gallery]").forEach((el) => {
   );
 });
 
-/* ---------- Carrousels vidéos ---------- */
-const reelObserver = new IntersectionObserver(
+/* ---------- Lecture auto des vidéos ----------
+   Sur téléphone (iOS en mode économie d'énergie notamment), la lecture auto peut être refusée :
+   on retente au premier toucher, et un tap sur la vidéo la lance / la met en pause. */
+const blockedVideos = new Set();
+const setPaused = (video, paused) => video.parentElement.classList.toggle("is-paused", paused);
+const tryPlay = (video) => {
+  video
+    .play()
+    .then(() => blockedVideos.delete(video))
+    .catch(() => {
+      blockedVideos.add(video);
+      setPaused(video, true);
+    });
+};
+const retryBlocked = () => blockedVideos.forEach((v) => v.dataset.visible === "1" && tryPlay(v));
+["touchstart", "click", "keydown"].forEach((evt) => document.addEventListener(evt, retryBlocked, { passive: true }));
+
+// Classe .is-paused sur le parent pour afficher le bouton ▶ (lecture refusée ou pause au tap)
+const watchPaused = (video) => video.addEventListener("playing", () => setPaused(video, false));
+
+const videoObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach(({ target, isIntersecting }) => {
-      if (isIntersecting) target.play().catch(() => {});
+      target.dataset.visible = isIntersecting ? "1" : "0";
+      if (isIntersecting) tryPlay(target);
       else target.pause();
     });
   },
   { threshold: 0.5 }
 );
 
+const heroVideo = document.querySelector(".hero__video");
+heroVideo.muted = true;
+heroVideo.playsInline = true;
+watchPaused(heroVideo);
+videoObserver.observe(heroVideo);
+document.querySelector(".hero").addEventListener("click", (e) => {
+  if (!e.target.closest("a") && heroVideo.paused) tryPlay(heroVideo);
+});
+
+/* ---------- Carrousels vidéos ---------- */
 document.querySelectorAll("[data-reels]").forEach((el) => {
   const name = el.dataset.reels;
   const count = Number(el.dataset.count);
@@ -176,10 +206,19 @@ document.querySelectorAll("[data-reels]").forEach((el) => {
     reel.innerHTML = `
       <video src="assets/video/${name}/${pad(i, 2)}.mp4" poster="assets/posters/${name}-${pad(i, 2)}.jpg"
         muted loop playsinline preload="none"></video>
+      <span class="reel__play" aria-hidden="true"></span>
       <span class="reel__tag">{07BPM)</span>
       <button class="reel__sound">Son off</button>`;
     const video = reel.querySelector("video");
     const sound = reel.querySelector(".reel__sound");
+    video.muted = true;
+    video.playsInline = true;
+    watchPaused(video);
+    video.addEventListener("click", () => {
+      if (video.paused) return tryPlay(video);
+      video.pause();
+      setPaused(video, true);
+    });
     sound.addEventListener("click", () => {
       // Un seul reel avec le son à la fois
       document.querySelectorAll(".reel video").forEach((v) => {
@@ -190,10 +229,10 @@ document.querySelectorAll("[data-reels]").forEach((el) => {
       });
       video.muted = !video.muted;
       sound.textContent = video.muted ? "Son off" : "Son on";
-      video.play().catch(() => {});
+      tryPlay(video);
     });
     el.appendChild(reel);
-    reelObserver.observe(video);
+    videoObserver.observe(video);
   }
 });
 
