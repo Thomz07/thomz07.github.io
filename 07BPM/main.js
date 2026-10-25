@@ -35,6 +35,15 @@ const fitTitles = () => {
 document.fonts.ready.then(fitTitles);
 window.addEventListener("resize", fitTitles);
 
+// Ordre aléatoire à chaque chargement (mélange de Fisher-Yates)
+const shuffle = (list) => {
+  for (let i = list.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+};
+
 /* ---------- Nav ---------- */
 const nav = document.getElementById("nav");
 const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -101,11 +110,7 @@ document.querySelectorAll("[data-gallery]").forEach((el) => {
   const name = el.dataset.gallery;
   const count = Number(el.dataset.count);
   const srcs = Array.from({ length: count }, (_, i) => `assets/img/${name}/${pad(i + 1, 3)}.jpg`);
-  // Ordre aléatoire à chaque chargement (mélange de Fisher-Yates)
-  for (let i = srcs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [srcs[i], srcs[j]] = [srcs[j], srcs[i]];
-  }
+  shuffle(srcs);
 
   const track = document.createElement("div");
   track.className = "carousel__track";
@@ -148,24 +153,17 @@ document.querySelectorAll("[data-gallery]").forEach((el) => {
 
 /* ---------- Lecture auto des vidéos ----------
    Sur téléphone (iOS en mode économie d'énergie notamment), la lecture auto peut être refusée :
-   on retente au premier toucher, et un tap sur la vidéo la lance / la met en pause. */
+   la vidéo affiche alors simplement son image (poster), et on retente au premier vrai geste. */
 const blockedVideos = new Set();
-const setPaused = (video, paused) => video.parentElement.classList.toggle("is-paused", paused);
 const tryPlay = (video) => {
   video
     .play()
     .then(() => blockedVideos.delete(video))
-    .catch(() => {
-      blockedVideos.add(video);
-      setPaused(video, true);
-    });
+    .catch(() => blockedVideos.add(video));
 };
 const retryBlocked = () => blockedVideos.forEach((v) => v.dataset.visible === "1" && tryPlay(v));
 // iOS ne compte comme « vrai » geste que touchend / pointerup / click (pas touchstart)
 ["touchend", "pointerup", "click", "keydown"].forEach((evt) => document.addEventListener(evt, retryBlocked, { passive: true }));
-
-// Classe .is-paused sur le parent pour afficher le bouton ▶ (lecture refusée ou pause au tap)
-const watchPaused = (video) => video.addEventListener("playing", () => setPaused(video, false));
 
 const videoObserver = new IntersectionObserver(
   (entries) => {
@@ -181,11 +179,7 @@ const videoObserver = new IntersectionObserver(
 const heroVideo = document.querySelector(".hero__video");
 heroVideo.muted = true;
 heroVideo.playsInline = true;
-watchPaused(heroVideo);
 videoObserver.observe(heroVideo);
-document.querySelector(".hero").addEventListener("click", (e) => {
-  if (!e.target.closest("a") && heroVideo.paused) tryPlay(heroVideo);
-});
 
 /* ---------- Carrousels vidéos ---------- */
 document.querySelectorAll("[data-reels]").forEach((el) => {
@@ -201,25 +195,19 @@ document.querySelectorAll("[data-reels]").forEach((el) => {
       <a class="reel__sound" href="${el.dataset.aftermovie}" target="_blank" rel="noopener">After movie</a>`;
     el.appendChild(card);
   }
-  for (let i = 1; i <= count; i++) {
+  const order = shuffle(Array.from({ length: count }, (_, i) => i + 1));
+  order.forEach((i) => {
     const reel = document.createElement("div");
     reel.className = "reel";
     reel.innerHTML = `
       <video src="assets/video/${name}/${pad(i, 2)}.mp4" poster="assets/posters/${name}-${pad(i, 2)}.jpg"
         muted loop playsinline preload="none"></video>
-      <span class="reel__play" aria-hidden="true"></span>
       <span class="reel__tag">{07BPM)</span>
       <button class="reel__sound">Son off</button>`;
     const video = reel.querySelector("video");
     const sound = reel.querySelector(".reel__sound");
     video.muted = true;
     video.playsInline = true;
-    watchPaused(video);
-    video.addEventListener("click", () => {
-      if (video.paused) return tryPlay(video);
-      video.pause();
-      setPaused(video, true);
-    });
     sound.addEventListener("click", () => {
       // Un seul reel avec le son à la fois
       document.querySelectorAll(".reel video").forEach((v) => {
@@ -234,7 +222,7 @@ document.querySelectorAll("[data-reels]").forEach((el) => {
     });
     el.appendChild(reel);
     videoObserver.observe(video);
-  }
+  });
 });
 
 /* ---------- Apparition au scroll ---------- */

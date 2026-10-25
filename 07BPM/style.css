@@ -295,17 +295,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   height: calc(100% + var(--ig-header) + 300px);
 }
 
-/* Bouton ▶ affiché quand une vidéo est en pause (lecture auto refusée sur mobile) */
-.hero__play, .reel__play {
-  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
-  width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(0,0,0,.45); border: 2px solid var(--white);
-  opacity: 0; pointer-events: none; transition: opacity .2s;
-}
-.hero__play::after, .reel__play::after {
-  content: ""; position: absolute; left: 25px; top: 19px;
-  border-left: 20px solid var(--white); border-block: 12px solid transparent;
-}
-.hero.is-paused .hero__play, .reel.is-paused .reel__play { opacity: 1; }
-.hero__play { top: auto; bottom: 90px; z-index: 1; }
-.reel video, .hero { cursor: pointer; }
+/* Lecture bloquée (iOS) : on cache le bouton ▶ natif de Safari pour ne garder que l'image */
+video::-webkit-media-controls,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button { display: none !important; -webkit-appearance: none; }
