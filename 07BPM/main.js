@@ -161,7 +161,8 @@ const tryPlay = (video) => {
     });
 };
 const retryBlocked = () => blockedVideos.forEach((v) => v.dataset.visible === "1" && tryPlay(v));
-["touchstart", "click", "keydown"].forEach((evt) => document.addEventListener(evt, retryBlocked, { passive: true }));
+// iOS ne compte comme « vrai » geste que touchend / pointerup / click (pas touchstart)
+["touchend", "pointerup", "click", "keydown"].forEach((evt) => document.addEventListener(evt, retryBlocked, { passive: true }));
 
 // Classe .is-paused sur le parent pour afficher le bouton ▶ (lecture refusée ou pause au tap)
 const watchPaused = (video) => video.addEventListener("playing", () => setPaused(video, false));

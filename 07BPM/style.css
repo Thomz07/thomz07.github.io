@@ -308,4 +308,4 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .hero.is-paused .hero__play, .reel.is-paused .reel__play { opacity: 1; }
 .hero__play { top: auto; bottom: 90px; z-index: 1; }
-.reel video { cursor: pointer; }
+.reel video, .hero { cursor: pointer; }
