@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>07BPM — Association</title>
+  <meta name="description" content="07BPM, association qui fait vivre la musique électronique en Ardèche : open airs à participation libre et soirées en club à Lyon.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo logo" aria-label="07BPM — accueil">{07BPM)</a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#asso">L'asso</a>
+      <a href="#esprit">L'esprit</a>
+      <a href="#rdv">Rendez-vous</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <video class="hero__video" src="assets/video/openair/03.mp4" poster="assets/posters/openair-05.jpg" autoplay muted loop playsinline></video>
+    <div class="hero__shade"></div>
+    <div class="hero__content">
+      <h1 class="hero__logo logo">{07BPM)</h1>
+      <p class="hero__tagline">Musique · Partage · Plaisir</p>
+      <div class="hero__ctas">
+        <a class="btn btn--light" href="#rdv">Prochains rendez-vous</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/07bpm_/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <a href="#asso" class="hero__scroll" aria-label="Défiler">↓</a>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>07BPM</span><span class="stripes"></span><span>Ardèche</span><span class="stripes"></span><span>Lyon</span><span class="stripes"></span>
+      <span>07BPM</span><span class="stripes"></span><span>Ardèche</span><span class="stripes"></span><span>Lyon</span><span class="stripes"></span>
+      <span>07BPM</span><span class="stripes"></span><span>Ardèche</span><span class="stripes"></span><span>Lyon</span><span class="stripes"></span>
+      <span>07BPM</span><span class="stripes"></span><span>Ardèche</span><span class="stripes"></span><span>Lyon</span><span class="stripes"></span>
+    </div>
+  </div>
+
+  <!-- L'ASSO -->
+  <section class="section about" id="asso">
+    <div class="container about__grid">
+      <div>
+        <p class="kicker">L'asso</p>
+        <h2 class="title">Faire bouger<br>la scène locale</h2>
+      </div>
+      <div class="about__text">
+        <p class="lead">07BPM, c'est trois potes passionnés de musique électronique qui ont eu envie de partager ce qu'ils aiment.</p>
+        <p>D'abord un collectif, aujourd'hui une association : nous organisons des évenements en Ardèche et à Lyon. L'idée est simple : réunir des gens autour de la musique, faire découvrir la techno à ceux qui ne la connaissent pas encore, et créer des souvenirs ensemble.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L'ESPRIT -->
+  <section class="section section--alt" id="esprit">
+    <div class="container">
+      <p class="kicker">L'esprit</p>
+      <h2 class="title">Un endroit safe<br>pour danser</h2>
+      <p class="lead esprit__lead">On veut que chacun puisse passer la porte, qu'il soit habitué des clubs ou à sa toute première soirée techno, et qu'il s'y sente bien du début à la fin.</p>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="pillar__num">01</span>
+          <h3>Ouvert à tous</h3>
+          <p>Pas besoin de s'y connaître : on a tous découvert la techno un jour. Programmation variée, et entrée à participation libre, chacun donne ce qu'il peut.</p>
+        </article>
+        <article class="pillar">
+          <span class="pillar__num">02</span>
+          <h3>Safe</h3>
+          <p>Ici, chacun doit se sentir respecté. Aucune tolérance pour les comportements sexistes, racistes ou haineux, une équipe attentive, de l'eau et des bouchons d'oreilles à dispo.</p>
+        </article>
+        <article class="pillar">
+          <span class="pillar__num">03</span>
+          <h3>Faire découvrir</h3>
+          <p>Des DJ qui partagent leur univers et des sons qu'on n'entend pas à la radio. On veut transmettre notre passion et faire grandir la scène techno et électro locale.</p>
+        </article>
+        <article class="pillar">
+          <span class="pillar__num">04</span>
+          <h3>Respecter le lieu</h3>
+          <p>On fait la fête chez les autres : respect de l'endroit, gobelets réutilisables, produits du coin, et le site est rendu plus propre qu'on l'a trouvé.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENDEZ-VOUS -->
+  <section class="section section--dark rdv" id="rdv">
+    <div class="container">
+      <p class="kicker">À venir</p>
+      <h2 class="title">Prochains<br>rendez-vous</h2>
+
+      <!-- Pour ajouter une date : remplacer la carte "Coming soon" par des <article class="date"> avec date__day / date__info -->
+      <div class="dates">
+        <article class="date date--soon date--single">
+          <div class="date__info">
+            <h3>Coming soon</h3>
+            <p>On prépare la suite. Les prochaines dates seront annoncées en premier sur Instagram.</p>
+          </div>
+          <a class="btn btn--light" href="https://www.instagram.com/07bpm_/" target="_blank" rel="noopener">Suivre</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS PASSÉS -->
+  <section class="section events" id="events">
+    <div class="container">
+      <p class="kicker">Ils ont eu lieu</p>
+      <h2 class="title">Nos events</h2>
+    </div>
+
+    <article class="event" id="openair">
+      <div class="container event__head">
+        <div class="event__date">1807</div>
+        <div>
+          <h3 class="event__title">Open air · Vinzieux</h3>
+          <p class="event__desc">Notre tout premier open air. 340 fêtards, 6 DJs de 16h à minuit, un coin chill, un bar, un snack et une trentaine de bénévoles.</p>
+        </div>
+      </div>
+      <div class="carousel" data-gallery="openair" data-count="107"></div>
+      <div class="reels" data-reels="openair" data-count="7" data-aftermovie="https://www.instagram.com/p/DbyPj1gsdZf/"></div>
+    </article>
+
+    <article class="event" id="macbar">
+      <div class="container event__head">
+        <div class="event__date">1109</div>
+        <div>
+          <h3 class="event__title">Macbar · Lyon</h3>
+          <p class="event__desc">Notre première soirée club, à Lyon. Une salle pleine, des artistes ravis et une seule envie : remettre ça.</p>
+        </div>
+      </div>
+      <div class="carousel" data-gallery="macbar" data-count="4"></div>
+      <div class="reels" data-reels="macbar" data-count="3"></div>
+    </article>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--dark contact" id="contact">
+    <div class="container contact__inner">
+      <p class="kicker">Contact</p>
+      <h2 class="title">On se voit<br>sur le<br>dancefloor</h2>
+      <p class="lead">Envie de devenir bénévole, de jouer, de nous accueillir ou de soutenir le projet ? Écrivez-nous, on répond à tout le monde.</p>
+      <div class="contact__links">
+        <a class="btn btn--light" href="https://www.instagram.com/07bpm_/" target="_blank" rel="noopener">@07bpm_</a>
+        <!-- TODO : mettre l'adresse mail de l'asso -->
+        <a class="btn btn--ghost" href="mailto:contact@07bpm.fr">contact@07bpm.fr</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="logo footer__logo">{07BPM)</span>
+    <span>© <span id="year"></span> Association 07BPM</span>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" aria-label="Fermer">×</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Photo précédente">‹</button>
+    <img alt="">
+    <button class="lightbox__nav lightbox__next" aria-label="Photo suivante">›</button>
+    <p class="lightbox__count"></p>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
